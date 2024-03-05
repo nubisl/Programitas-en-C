@@ -1,0 +1,89 @@
+//CARGADO DE GASOLINA
+//PROGRAMA 37
+//05 DE JUNIO DEL 2018
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<conio.h>
+#include<string.h>
+
+int c;
+float l;
+char r[6],mp[7];
+main ( )
+{
+      system("coche.png");
+      system("pemex.png");
+		system("color 1f");
+	   gotoxy(2,2);
+	  	printf("BIENVENIDO AL PROGRAMA 37");
+	   gotoxy(2,3);
+	  	printf("LLENADO DE TANQUE");
+      gotoxy(2,4);
+      printf("PEMEX");
+      gotoxy(6,8);
+      printf("TECLEE EL TIPO DE GASOLINA QUE DESEA");
+   	gotoxy(6,10);
+      printf("%c MAGNA",254);
+      gotoxy(6,11);
+      printf("%c PREMIUM",254);
+      gotoxy(6,13);
+      gets(mp);
+		if (strcmpi(mp,"magna")==0)
+         {
+         	system("cls");
+				//REIMPRESION
+				system("color 1f");
+			   gotoxy(2,2);
+			  	printf("BIENVENIDO AL PROGRAMA 37");
+			   gotoxy(2,3);
+			  	printf("LLENADO DE TANQUE");
+		      gotoxy(2,4);
+	      	printf("PEMEX, GASOLINA MAGNA");
+				//FINALIZA REIMPRESION
+	     		gotoxy(7,8);
+			  	printf("INGRESA LA CANTIDAD DE LITROS A CARGAR");
+			   gotoxy(7,9);
+		      scanf("%f",&l);
+      		gotoxy(7,10);
+				printf(" %c INICIA %c LLENADO DE %.2f LITROS",254,254,l);
+            l=l*17.92;
+            gotoxy(7,12);
+	         printf("PRECIO TOTAL %.2f , TOME SU COMPROBANTE\n",l);
+	      	c=0;
+	   	   while (c<=100)
+		      	{
+						printf("LLENANDO TANQUE %c %c %c %d \n",220,220,220,c);
+		   	      c=c+10;
+         		}
+			}
+		if (strcmpi(mp,"premium")==0)
+         {
+				system("cls");
+				//REIMPRESION
+				system("color 1f");
+			   gotoxy(2,2);
+			  	printf("BIENVENIDO AL PROGRAMA 37");
+			   gotoxy(2,3);
+			  	printf("LLENADO DE TANQUE");
+		      gotoxy(2,4);
+	      	printf("PEMEX, GASOLINA PREMIUM");
+				//FINALIZA REIMPRESION
+	     		gotoxy(7,8);
+			  	printf("INGRESA LA CANTIDAD DE LITROS A CARGAR");
+			   gotoxy(7,9);
+		      scanf("%f",&l);
+      		gotoxy(7,10);
+				printf(" %c INICIA %c LLENADO DE %.2f LITROS",254,254,l);
+            l=l*19.4;
+            gotoxy(7,12);
+	         printf("PRECIO TOTAL %.2f , TOME SU COMPROBANTE\n",l);
+	      	c=0;
+	   	   while (c<=100)
+		      	{
+						printf("LLENANDO TANQUE %c %c %c %d \n",220,220,220,c);
+		   	      c=c+10;
+         		}
+         }
+	getch();
+}
