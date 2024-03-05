@@ -1,0 +1,47 @@
+//CUESTIONARIO, PROGRAMA 9
+//13 DE ABRIL DEL 2018
+/*SÁNCHEZ LÓPEZ BLANCA YAEL, GRUPO 1RM1*/
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+char n[60],e[10],de[50],c[50],cf[15];
+main( )
+{
+	system("color 3f");
+	gotoxy(30,7);
+	printf("BIENVENIDO AL PROGRAMA 9");
+	gotoxy(35,9);
+	printf("CUESTIONARIO");
+	gotoxy(7,14);
+	printf("CUAL ES TU NOMBRE?\t");
+	gets(n);
+	gotoxy(7,15);
+	printf("QUE EDAD TIENES?\t");
+	gets(e);
+	gotoxy(7,16);
+	printf("DONDE ESTUDIAS?\t");
+	gets(de);
+	gotoxy(7,17);
+	printf("QUE CARRERA ESTUDIAS?\t");
+	gets(c);
+	gotoxy(7,18);
+	printf("CUAL ES TU COLOR FAVORITO?\t");
+	gets(cf);
+	system("cls");
+	system("color 0b");
+	gotoxy(30,7);
+	printf("BIENVENIDO AL PROGRAMA 9");
+	gotoxy(29,9);
+	printf("RESUMEN DEL CUESTIONARIO");
+	gotoxy(7,14);
+	printf("TU NOMBRE ES %s",n);	
+	gotoxy(7,15);
+	printf("TU EDAD ES %s",e);	
+	gotoxy(7,16);
+	printf("ESTUDIAS EN %s",de);	
+	gotoxy(7,17);
+	printf("ESTUDIAS %s",c);	
+	gotoxy(7,18);
+	printf("TU COLOR FAVORITO ES %s",cf);	
+	getch();
+}
