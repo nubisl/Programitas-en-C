@@ -1,0 +1,83 @@
+/* SEGUNDO DEPARTAMENTAL MÉTODOS NUMÉRICOS
+MÉTODO DE BISECCIÓN */
+#include <stdio.h>
+#include <stdlib.h> 
+#include <conio.h> 
+#include <math.h>
+#include "windows.h"
+float function(float x)
+{
+return (3*pow(x,2)-18*(x)+15)/5;
+}
+int main( )
+{
+
+	system("color 3f");
+	gotoxy(27,9);
+	printf("INSTITUTO POLIT%cCNICO NACIONAL",144);	
+	gotoxy(16,11);
+	printf("E");
+	gotoxy(26,13);
+	printf("O");
+	gotoxy(33,15);
+	printf("M%cTODOS NUM%cRICOS",144,144);
+	gotoxy(29,17);
+	printf("S",181,224);
+	gotoxy(6,24);
+	printf("PRESIONE CUALQUIER TECLA PARA CONTINUAR");	
+	getch();
+	system("cls");
+	system("color 5f");
+
+printf ("METODO DE BISECCION\n\n");
+float x1,x2,a,b,c,Li,Ls,Ea,pi,error,raiz;
+int n;
+
+	printf("VALOR DE A EN ECUACION GENERAL: ");
+	scanf ("%f",&a);
+	printf("\nVALOR DE B EN ECUACION GENERAL: ");
+	scanf ("%f",&b);
+	printf("\nVALOR DE C EN ECUACION GENERAL: ");
+	scanf ("%f",&c);
+	printf("\nERROR DE APROXIMACION SUGERIDO: ");
+	scanf ("%f",&Ea);
+	printf("\nNUMERO DE ITERACIONES: ");
+	scanf ("%f",&n);
+	printf("\nLIMITE INICIAL: ");
+	scanf ("%f",&Li);
+	printf("\nLIMITE FINAL: ");
+	scanf ("%f",&Ls);
+//Metodo Analitico
+x1=(-b+(sqrt(pow(b,2)-(4*a*c))))/(2*a);
+x2=(-b-(sqrt(pow(b,2)-(4*a*c))))/(2*a);
+
+printf ("\nMETODO ANALITICO\n\n");
+printf ("Resultados de las Raices:\n");
+printf ("x1 -----> %.4f",x1);
+printf ("\nx2 -----> %.4f",x2);
+getch ();
+//Metodo Numerico
+printf ("\n\nMETODO NUMERICO\n\n");
+
+printf ("\tIt");
+
+printf ("\tPi");
+
+printf ("\tError");
+
+printf ("\tRaiz");
+int cont;
+for(cont=1;cont<=10;cont++)
+{
+pi=(Ls+Li)/2;
+if((function(pi)*function(Ls))>0) Ls=pi;
+else Li=pi;
+error= Ls-Li;
+raiz=pi;
+printf("\n\t%i %f %f %f", cont,pi,error,raiz);
+}
+
+printf("\n\nRaiz Aproximada -----> %f",raiz);
+printf("\nError ---------------> %f",error);
+getch();
+}
