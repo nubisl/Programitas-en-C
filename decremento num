@@ -1,0 +1,16 @@
+//DECREMENTO, PROGRAMA 12
+//23 DE ABRIL DEL 2018
+
+/* PostDecremento y PreDecremento */
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+int main()
+{
+system("color 6f");
+int x=1;
+printf("\n x=%d",x); 
+printf("\n x=%d",--x);/* decrementa y después imprime */
+printf("\n x=%d",x--);/* imprime y después decrementa */ printf("\n x=%d",x);
+getch(); return 0;
+}
