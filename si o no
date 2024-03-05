@@ -1,0 +1,44 @@
+/* CONDICIONAL SI O NO, PROGRAMA 17 
+12 DE MAYO DEL 2018*/
+
+#include<stdlib.h>
+#include<stdio.h>
+#include<conio.h>
+char x;
+main()
+{
+	system("color 0f");
+	gotoxy(28,6);
+   printf("BIENVENIDO AL PROGRAMA 17");
+	gotoxy(30,7);
+   printf("CONDICIONAL SI O NO");
+   gotoxy(6,11);
+	printf("%cDESEA EJECUTAR EL PROGRAMA? ",168);
+	scanf("%c",&x);
+	gotoxy (33,11);
+	if (x=='SI'||x=='Si'||x=='si'||x=='sI'||x=='S'||x=='s'||x=='NO'||x=='no'||x=='No'||x=='nO'||x=='n'||x=='N')
+		{
+	      if (x=='SI'||x=='Si'||x=='si'||x=='sI'||x=='S'||x=='s')
+	      	{
+					system("cls");
+               system("color 1f");
+            	gotoxy(35,12);
+	         	printf("INICIANDO...");
+	         }
+	      if (x=='NO'||x=='no'||x=='No'||x=='nO'||x=='n'||x=='N')
+	      	{
+               system("cls");
+               system("color 4f");
+               gotoxy(30,12);
+	         	printf("EJECUCION CANCELADA");
+	         }
+	   }
+	else
+		{
+			system("cls");
+         system("color 0c");
+         gotoxy(33,12);
+	   	printf("OPCION INVALIDA");
+		}
+	getch();
+}
