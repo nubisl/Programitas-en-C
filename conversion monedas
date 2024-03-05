@@ -1,0 +1,39 @@
+//CONVERSION A 5 MONEDAS DIFERENTES , PROGRAMA 8
+//06 DE ABRIL DEL 2018
+/*X*/
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+float m1,c1,c2,c3,c4,c5;
+main( )
+{
+	system("color 2f");
+	gotoxy(30,7);
+	printf("BIENVENIDO AL PROGRAMA 8");
+	gotoxy(32,9);
+	printf("CONVERSION DE MONEDA");
+	gotoxy(7,13);
+	printf("INGRESA LA CANTIDAD INICIAL EN PESOS MEXICANOS\t");
+	scanf("%f",&m1);
+	//DOLARES
+	c1=m1*0.0546;
+	//PESOS ARGENTINOS
+	c2=m1*1.10;
+	//EUROS
+	c3=m1*0.0444;
+	//BOLIVARES
+	c4=m1*2197.32;
+	//LIRA TURCA
+	c5=m1*0.22;
+	gotoxy(7,15);
+	printf("%.2f EN PESOS MEXICANOS EQUIVALE A %f EN DOLARES\t",m1,c1);
+	gotoxy(7,16);
+	printf("%.2f EN PESOS MEXICANOS EQUIVALE A %f EN PESOS ARGENTINOS\t",m1,c2);
+	gotoxy(7,17);
+	printf("%.2f EN PESOS MEXICANOS EQUIVALE A %f EN EUROS\t",m1,c3);
+	gotoxy(7,18);
+	printf("%.2f EN PESOS MEXICANOS EQUIVALE A %f EN BOLIVARES\t",m1,c4);
+	gotoxy(7,19);
+	printf("%.2f EN PESOS MEXICANOS EQUIVALE A %f EN LIRA TURCA \t",m1,c5);
+	getch();
+}
