@@ -1,0 +1,414 @@
+//MÉTODO DE INTERPOLACIÓN LINEAL DE NEWTON
+#include<stdlib.h>
+#include<conio.h>
+#include<stdio.h>
+#include<math.h>
+
+int main()
+{
+	float x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,y1,y2,y3,y4,y5,y6,y7,y8,y9,y10,pol,c,f1x,f1x1,f1x2,f1x3,f1x4,f1x5,f1x6,f1x7,f1x8,f1x9,f1x10,ea1,ea2,ea3,ea4,ea5,ea6,ea7,ea8,ea9,ea10,o1,o2,o3,o4,o5,o6,o7,o8,o9,o10;
+	
+	//PANTALLA 1
+	system("color 2f");
+	gotoxy(2,14);
+	printf("EXAMEN METODOS NUMERICOS");
+	gotoxy(2,15);
+	printf("SEGUNDO DEPARTAMENTAL");
+	gotoxy(2,18);
+	printf("EQUIPO");
+	gotoxy(2,19);
+	printf("%c",254);
+	gotoxy(2,20);
+	printf("%cA",254);
+	gotoxy(2,21);
+	printf("%cSA",254);	
+	gotoxy(3,22);
+	printf("%c %c",204,185);	
+	getch();
+	//PANTALLA 2
+	system("cls");
+	system("color 4f");
+	gotoxy(2,3);
+	printf("%c PUNTOS %c ",254,254);
+	//P1 
+	gotoxy(4,5);
+	printf("P1 (          ,          )");
+	gotoxy(8,5);
+	scanf("%f",&x1);
+	gotoxy(19,5);
+	scanf("%f",&y1);
+	//P2
+	gotoxy(4,6);
+	printf("P2 (          ,          )");
+	gotoxy(8,6);
+	scanf("%f",&x2);
+	gotoxy(19,6);
+	scanf("%f",&y2);
+	//P3
+	gotoxy(4,7);
+	printf("P3 (          ,          )");
+	gotoxy(8,7);
+	scanf("%f",&x3);
+	gotoxy(19,7);
+	scanf("%f",&y3);	
+	//P4
+	gotoxy(4,8);
+	printf("P4 (          ,          )");
+	gotoxy(8,8);
+	scanf("%f",&x4);
+	gotoxy(19,8);
+	scanf("%f",&y4);	
+	//P5
+	gotoxy(4,9);
+	printf("P5 (          ,          )");
+	gotoxy(8,9);
+	scanf("%f",&x5);
+	gotoxy(19,9);
+	scanf("%f",&y5);	
+	//P6
+	gotoxy(4,10);
+	printf("P6 (          ,          )");
+	gotoxy(8,10);
+	scanf("%f",&x6);
+	gotoxy(19,10);
+	scanf("%f",&y6);
+	//P7
+	gotoxy(4,11);
+	printf("P7 (          ,          )");
+	gotoxy(8,11);
+	scanf("%f",&x7);
+	gotoxy(19,11);
+	scanf("%f",&y7);
+	//P8
+	gotoxy(4,12);
+	printf("P8 (          ,          )");
+	gotoxy(8,12);
+	scanf("%f",&x8);
+	gotoxy(19,12);
+	scanf("%f",&y8);
+	//P9
+	gotoxy(4,13);
+	printf("P9 (          ,          )");
+	gotoxy(8,13);
+	scanf("%f",&x9);
+	gotoxy(19,13);
+	scanf("%f",&y9);	
+	//P10
+	gotoxy(4,14);
+	printf("P10 (          ,          )");
+	gotoxy(9,14);
+	scanf("%f",&x10);
+	gotoxy(20,14);
+	scanf("%f",&y10);
+	gotoxy(23,20);
+	printf("PRESIONE CUALQUIER TECLA PARA CONTINUAR...");
+	getch();
+	//PANTALLA 3
+	system("cls");
+	system("color 4f");
+	gotoxy(5,10);
+	printf("POLINOMIO DE PRIMER ORDEN");
+	pol=(y10-y1)/(x10-x1);
+	c=(pol*x1)+y1;
+	gotoxy(6,13);
+	printf("%c1(x)= %.4f x + %.4f",159,pol,c);
+	//f1(x)
+	f1x1=(pol*x1)+c;
+	f1x2=(pol*x2)+c;
+	f1x3=(pol*x3)+c;
+	f1x4=(pol*x4)+c;
+	f1x5=(pol*x5)+c;
+	f1x6=(pol*x6)+c;
+	f1x7=(pol*x7)+c;
+	f1x8=(pol*x8)+c;
+	f1x9=(pol*x9)+c;
+	f1x10=(pol*x10)+c;
+	//ERROR DE APROXIMACIÓN
+	ea1=f1x1-y1;
+	ea2=f1x2-y2;
+	ea3=f1x3-y3;
+	ea4=f1x4-y4;
+	ea5=f1x5-y5;
+	ea6=f1x6-y6;
+	ea7=f1x7-y7;
+	ea8=f1x8-y8;
+	ea9=f1x9-y9;
+	ea10=f1x10-y10;
+	getch();
+	system("cls");
+	//PANTALLA 4
+	if (y1>f1x1){
+		o1=1;}
+		if (y1<f1x1){
+			o1=0; 	
+		}
+		
+	if (y2>f1x2){
+		o2=1;}
+		if (y2<f1x2){
+			o2=0; 
+		}
+	
+	if (y3>f1x3){
+		o3=1;}
+		if (y3<f1x3){
+			o3=0; 
+		}
+	
+	if (y4>f1x4){
+		o4=1;}
+		if (y4<f1x4){
+			o4=0; 
+		}
+	
+	if (y5>f1x5){
+		o5=1;}
+		if (y5<f1x5){
+			o5=0; 
+		}
+	
+	if (y6>f1x6){
+		o6=1;}
+		if (y6<f1x6){
+			o6=0; 
+		}
+	
+	if (y7>f1x7){
+		o7=1;}
+		if (y7<f1x7){
+			o7=0; 
+		}
+	
+	if (y8>f1x8){
+		o8=1;}
+		if (y8<f1x8){
+			o8=0; 
+		}
+	
+	if (y9>f1x9){
+		o9=1;}
+		if (y9<f1x9){
+			o9=0; 
+		}
+	
+	if (y10>f1x10){
+		o10=1;}
+		if (y10<f1x10){
+			o10=0; 
+		}	
+		
+	// error positivo
+	if (ea1<0)
+	ea1= ea1*-1;
+	
+	if (ea1<0)
+	ea2= ea2*-1;
+	
+	if (ea1<0)
+	ea3= ea3*-1;
+	
+	if (ea1<0)
+	ea4= ea4*-1;
+	
+	if (ea1<0)
+	ea5= ea5*-1;
+	
+	if (ea1<0)
+	ea6= ea6*-1;
+	
+	if (ea1<0)
+	ea7= ea7*-1;
+	
+	if (ea1<0)
+	ea8= ea8*-1;
+	
+	if (ea1<0)
+	ea9= ea9*-1;
+	
+	if (ea1<0)
+	ea10= ea10*-1;
+	
+	
+	
+	
+	// Tabla 
+	system ("color 3f");
+	gotoxy (2,3);	
+	printf ("P");
+	gotoxy (12,3);
+	printf ("X");
+	gotoxy (22,3);
+	printf ("%c(x)",159);
+	gotoxy (32,3);
+	printf ("X1");
+	gotoxy (42,3);
+	printf("%c1(x)",159);
+	gotoxy (52,3);
+	printf ("Ea");
+	gotoxy (62,3);
+	printf ("Opcion");
+	
+	//impresion de puntos 
+	
+	gotoxy (2,5);
+	printf ("P1");
+	gotoxy (2,7);
+	printf ("P2");
+	gotoxy (2,9);
+	printf ("P3");
+	gotoxy (2,11);
+	printf ("P4");
+	gotoxy (2,13);
+	printf ("P5");
+	gotoxy (2,15);
+	printf ("P6");
+	gotoxy (2,17);
+	printf ("P7");
+	gotoxy (2,19);
+	printf ("P8");
+	gotoxy (2,21);
+	printf ("P9");
+	gotoxy (2,23);
+	printf ("P10");
+	
+	//impresion de x
+	
+	gotoxy (12,5);
+	printf ("%.4f",x1);
+	gotoxy (12,7);
+	printf ("%.4f",x2);
+	gotoxy (12,9);
+	printf ("%.4f",x3);
+	gotoxy (12,11);
+	printf ("%.4f",x4);
+	gotoxy (12,13);
+	printf ("%.4f",x5);
+	gotoxy (12,15);
+	printf ("%.4f",x6);
+	gotoxy (12,17);
+	printf ("%.4f",x7);
+	gotoxy (12,19);
+	printf ("%.4f",x8);
+	gotoxy (12,21);
+	printf ("%.4f",x9);
+	gotoxy (12,23);
+	printf ("%.4f",x10);
+	
+	//impresion de Y (f(x))
+	
+	gotoxy (22,5);
+	printf ("%.4f",y1);
+	gotoxy (22,7);
+	printf ("%.4f",y2);
+	gotoxy (22,9);
+	printf ("%.4f",y3);
+	gotoxy (22,11);
+	printf ("%.4f",y4);
+	gotoxy (22,13);
+	printf ("%.4f",y5);
+	gotoxy (22,15);
+	printf ("%.4f",y6);
+	gotoxy (22,17);
+	printf ("%.4f",y7);
+	gotoxy (22,19);
+	printf ("%.4f",y8);
+	gotoxy (22,21);
+	printf ("%.4f",y9);
+	gotoxy (22,23);
+	printf ("%.4f",y10);
+	
+	//impresion de x1
+	
+	gotoxy (32,5);
+	printf ("%.4f",x1);
+	gotoxy (32,7);
+	printf ("%.4f",x2);
+	gotoxy (32,9);
+	printf ("%.4f",x3);
+	gotoxy (32,11);
+	printf ("%.4f",x4);
+	gotoxy (32,13);
+	printf ("%.4f",x5);
+	gotoxy (32,15);
+	printf ("%.4f",x6);
+	gotoxy (32,17);
+	printf ("%.4f",x7);
+	gotoxy (32,19);
+	printf ("%.4f",x8);
+	gotoxy (32,21);
+	printf ("%.4f",x9);
+	gotoxy (32,23);
+	printf ("%.4f",x10);
+	
+	//impresion de f1(x)
+	
+	gotoxy (42,5);
+	printf ("%.4f",f1x1);
+	gotoxy (42,7);
+	printf ("%.4f",f1x2);
+	gotoxy (42,9);
+	printf ("%.4f",f1x3);
+	gotoxy (42,11);
+	printf ("%.4f",f1x4);
+	gotoxy (42,13);
+	printf ("%.4f",f1x5);
+	gotoxy (42,15);
+	printf ("%.4f",f1x6);
+	gotoxy (42,17);
+	printf ("%.4f",f1x7);
+	gotoxy (42,19);
+	printf ("%.4f",f1x8);
+	gotoxy (42,21);
+	printf ("%.4f",f1x9);
+	gotoxy (42,23);
+	printf ("%.4f",f1x10);
+	
+	//impresion de error 
+	
+	gotoxy (52,5);
+	printf ("%.4f",ea1);
+	gotoxy (52,7);
+	printf ("%.4f",ea2);
+	gotoxy (52,9);
+	printf ("%.4f",ea3);
+	gotoxy (52,11);
+	printf ("%.4f",ea4);
+	gotoxy (52,13);
+	printf ("%.4f",ea5);
+	gotoxy (52,15);
+	printf ("%.4f",ea6);
+	gotoxy (52,17);
+	printf ("%.4f",ea7);
+	gotoxy (52,19);
+	printf ("%.4f",ea8);
+	gotoxy (52,21);
+	printf ("%.4f",ea9);
+	gotoxy (52,23);
+	printf ("%.4f",ea10);
+	
+	//impresion de opcion 
+	
+    gotoxy (62,5);
+	printf ("%.0f",o1);
+	gotoxy (62,7);
+	printf ("%.0f",o2);
+	gotoxy (62,9);
+	printf ("%.0f",o3);
+	gotoxy (62,11);
+	printf ("%.0f",o4);
+	gotoxy (62,13);
+	printf ("%.0f",o5);
+	gotoxy (62,15);
+	printf ("%.0f",o6);
+	gotoxy (62,17);
+	printf ("%.0f",o7);
+	gotoxy (62,19);
+	printf ("%.0f",o8);
+	gotoxy (62,21);
+	printf ("%.0f",o9);
+	gotoxy (62,23);
+	printf ("%.0f",o10);
+	gotoxy (1,1);
+	printf ("ACOTACION: Rellenar = 1 ; Desbastar = 0");
+	getch();	
+}
