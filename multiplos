@@ -1,0 +1,40 @@
+//MULTIPLOS DE UN NUMERO, PROGRAMA 13
+//23 DE ABRIL DEL 2018
+
+#include<stdlib.h>
+#include<stdio.h>
+#include<conio.h>
+double n;
+main()
+{
+	system("color 0a");
+	gotoxy(29,7);
+	printf("BIENVENIDO AL PROGRAMA 13");
+	gotoxy(36,9);
+	printf("MULTIPLOS");
+	gotoxy(7,13);
+	printf("INGRESA UN NUMERO ");
+	scanf("%lf",&n);
+	system("cls");
+   system("color 8f");
+   gotoxy(30,7);
+	printf("RESUMEN DEL PROGRAMA 13");
+	gotoxy(36,9);
+	printf("MULTIPLOS");
+   gotoxy(7,13);
+   printf("TU NUMERO ES %.1f Y SE OBTENDRA EN MULTIPLOS DE %.0f \n",n,n);
+	n=n*n;
+   gotoxy(9,15);
+	printf("%.0f \n",n);
+	n=n*n;
+   gotoxy(9,16);
+	printf("%.0f \n",n);
+	n=n*n;
+	gotoxy(9,17);
+	printf("%.0f \n",n);
+	n=n*n;
+  	gotoxy(9,18);
+	printf("%.0f \n",n);
+	n=n*n;
+	getch();
+}
