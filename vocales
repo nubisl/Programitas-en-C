@@ -1,0 +1,31 @@
+//DETECTOR DE VOCALES, PROGRAMA 19
+//12 DE MAYO DEL 2018
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<conio.h>
+char v;
+main ( )
+{
+	system("color 5f");
+	gotoxy(28,6);
+   printf("BIENVENIDO AL PROGRAMA 19");
+	gotoxy(31,7);
+   printf("DETECTOR DE VOCALES");
+   gotoxy(4,11);
+   printf("PROPORCIONE UNA LETRA ");
+   scanf("%c",&v);
+   if (v=='a'||v=='A'||v=='e'||v=='E'||v=='i'||v=='I'||v=='o'||v=='O'||v=='u'||v=='U')
+   	{
+         system("color 2f");
+         gotoxy(6,14);
+	      printf("LA LETRA %c ES UNA VOCAL",v);
+      }
+   else
+   	{
+         system("color 4f");
+         gotoxy(6,14);
+	      printf("EL CARACTER %c NO ES UNA VOCAL",v);
+      }
+   getch();
+}
