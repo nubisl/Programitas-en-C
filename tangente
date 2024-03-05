@@ -1,0 +1,96 @@
+/* SEGUNDO DEPARTAMENTAL MÉTODOS NUMÉRICOS
+
+MÉTODO DE LA TANGENTE, EJERCICIO 3 */
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+#include<math.h>
+
+float x1,x2,a,b,c,linf,lsup,Ea,n,pi,error,raiz,fxi,fxn;
+int cont;
+
+int main( )
+{
+	system("color 3f");
+	gotoxy(27,9);
+	printf("INSTITUTO POLIT%cCNICO NACIONAL",144);
+	gotoxy(16,11);
+	printf("");
+	gotoxy(26,13);
+	printf("U");
+	gotoxy(33,15);
+	printf("M%cTODOS NUM%cRICOS",144,144);
+	gotoxy(29,17);
+	printf("SL",181,224);
+	gotoxy(6,24);
+	printf("PRESIONE CUALQUIER TECLA PARA CONTINUAR");
+	getch();
+	system("cls");
+	system("color 5f");
+	gotoxy(65,2);
+	printf("EJERCICIO 3");
+	gotoxy(5,5);
+	printf ("METODO DE LA TANGENTE");
+	gotoxy(4,10);
+	printf("VALORES EN LA ECUACION GENERAL: ");
+   	gotoxy(5,11);
+	printf("%c VALOR DE A: ",254);
+	scanf ("%f",&a);
+	gotoxy(5,12);
+	printf("%c VALOR DE B: ",254);
+	scanf ("%f",&b);
+    gotoxy(5,13);
+	printf("%c VALOR DE C: ",254);
+	scanf ("%f",&c);
+   	gotoxy(6,15);
+	printf("%c ERROR DE APROXIMACION: ",204);
+	scanf ("%f",&Ea);
+   	gotoxy(6,16);
+   	printf("%c LIMITE INFERIOR: ",204);
+	scanf ("%f",&linf);
+	gotoxy(6,17);
+	printf("%c LIMITE SUPERIOR: ",204);
+	scanf ("%f",&lsup);
+  	gotoxy(6,18);
+	printf("%c NUMERO DE ITERACIONES: ",204);
+	scanf ("%f",&n);
+	//MÉTODO ANALÍTICO
+	system("cls");
+   	system("color 6f");
+   	gotoxy(65,2);
+	printf("EJERCICIO 3");
+   	gotoxy(5,5);
+	printf("METODO ANALITICO");
+   	//FÓRMULA GENERAL
+	x1=(-b+(sqrt(pow(b,2)-(4*a*c))))/(2*a);
+	x2=(-b-(sqrt(pow(b,2)-(4*a*c))))/(2*a);
+	gotoxy(5,6);
+   	printf ("Valor de x:");
+	gotoxy(6,7);
+	printf ("%c x1 -----> %.4f",254,x1);
+	gotoxy(6,8);
+	printf ("%c x2 -----> %.4f",254,x2);
+	//MÉTODO NUMÉRICO
+	gotoxy(5,10);
+	printf("METODO NUMERICO\n\n");
+	printf("\tI");
+	printf("   %c(xi)",159);
+	printf("  %c'(xi)",159);
+	printf("  RAIZ");
+	printf("   ERROR");
+   	//fxi es evaluado en la función original y fxn es evaluado en la derivada
+	for(cont=1;cont<=n;cont++)
+    {
+        fxi=(3*pow(lsup,2)-18*(lsup)+15)/5;
+        fxn=(6*(lsup)-18)/5;
+        raiz=lsup-(fxi/fxn);
+        error=lsup-raiz;
+        lsup=raiz;
+	    printf("\n\t%d %.3f %.4f  %.4f  %.4f",cont,fxi,fxn,raiz,error);
+	}
+	gotoxy(7,20);
+	printf("%c RAIZ APROXIMADA -----> %.4f",254,raiz);
+	gotoxy(7,21);
+	printf("%c ERROR DE APROXIMACION ---------------> %.4f",254,error);
+	getch();
+}
