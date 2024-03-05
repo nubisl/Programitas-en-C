@@ -1,0 +1,28 @@
+//RITMO CARDIACO, PROGRAMA 14
+//23 DE ABRIL DEL 2018
+
+#include<stdlib.h>
+#include<stdio.h>
+#include<math.h>
+#include<conio.h>
+float FCM,FCMB,e;
+main()
+{
+	system("color 0a");
+	/*ESTE PROGRAMA CALCULA LA FRECUENCIA CARDÍACA MÁXIMA BASADO EN
+	LA FÓRMULA DE "TANAKA" FCM=208-75-9.73*EDAD */
+	gotoxy(29,7);
+	printf("BIENVENIDO AL PROGRAMA 14");
+	gotoxy(28,9);
+	printf("FRECUENCIA CARDIACA MAXIMA");
+	gotoxy(7,13);
+	printf("INGRESA TU EDAD EN A%cOS\t",165);
+	scanf("%f",&e);
+	FCMB=(220-e);
+	FCM=(208.75)-(0.73*e);
+   gotoxy(8,15);
+	printf("TU FCM SEGUN LA FORMULA BASICA ES %.0f ",FCMB);
+	gotoxy(8,16);
+	printf("TU FCM SEGUN LA FORMULA DE TANAKA ES %.0f ",FCM);
+	getch();
+}
