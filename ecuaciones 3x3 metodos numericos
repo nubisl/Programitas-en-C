@@ -1,0 +1,1242 @@
+/* MÉTODOS NUMÉRICOS
+PROYECTO, APLICACIÓN DEL MÉTODO NUMÉRICO 
+EN LA RESOLUCIÓN DE SISTEMAS DE ECUACIONES DE 3X3
+BASADO EN EL MÉTODO DE GAUSS JORDAN
+17 DE NOVIEMBRE DEL 2018
+ */
+#include<conio.h>
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+#include<string.h>
+
+float n1,n2;
+int r,m,t;
+char s,n[4],ans[10];
+
+main()
+{
+	menu:
+	system("cls");
+	system("color f0");
+	textcolor(MAGENTA); //COLOR LETRA
+	gotoxy(2,2);
+	printf("BIENVENIDO");
+	gotoxy(32,7);
+	printf("PROYECTO M%cTODOS NUM%cRICOS",144,144);
+	//	MENÚ
+	textcolor(BROWN); //COLOR LETRA
+	gotoxy(6,10);
+	printf("TECLEA EL N%cMERO DE LA OPCI%cN A LA QUE QUIERAS ACCEDER ",233,224);
+	textcolor(BLACK); //COLOR LETRA
+	gotoxy(8,13);
+	printf("%c 1 INTRODUCCI%cN",254,224);
+	gotoxy(8,14);
+	printf("%c 2 OBJETIVO GENERAL ",254);
+	gotoxy(8,15);
+	printf("%c 3 TEORIA",254);
+	gotoxy(8,16);
+	printf("%c 4 EXPLICACI%cN DEL PROBLEMA",254,224);
+	gotoxy(8,17);
+	printf("%c 5 CALCULADORA DE SISTEMAS DE ECUACIONES",254);
+	gotoxy(8,18);
+	printf("%c 6 CUESTIONARIO",254);
+	
+	gotoxy(10,20);
+	scanf("%c",&s);
+	switch (s)
+	{
+			case '1':
+				intro:
+				system("cls");
+    	        system("color 5f");
+				gotoxy(2,1);
+				printf("APLICACI%cN DE M%cTODOS NUM%cRICOS EN SOLUCI%cN DE UN SISTEMA DE ECUACIONES DE 3x3 ",224,144,144,224);
+				gotoxy(2,2);
+				printf("PROYECTO M%cTODOS NUM%cRICOS",144,144);
+				gotoxy(45,3);printf("P%cGINA 1",181);
+				gotoxy(70,5);
+	            printf("%c 1 INTRODUCCI%cN",254,224);
+				gotoxy(5,8);
+				printf("M%cTODO NUM%cRICO",144,144);
+				gotoxy(6,10);		  	
+				printf("Un m%ctodo num%crico es un procedimiento mediante el cual se obtiene, casi siempre de",130,130);
+				gotoxy(6,11);
+				printf("manera aproximada, la soluci%cn de ciertos problemas realizando c%clculos puramente",162,160);
+				gotoxy(6,12);
+	        	printf("aritm%cticos y l%cgicos (operaciones aritm%cticas elementales, c%clculo de funciones, consulta",130,162,130,160);
+            	gotoxy(6,13);
+	    		printf("de una tabla de valores, c%clculo preposicional, etc.).",160);
+	        	gotoxy(6,15);
+	        	printf("Consiste en una lista finita de instrucciones precisas que especifican una secuencia de");
+				gotoxy(6,16);
+				printf("operaciones algebraicas y l%cgicas (algor%ctmo), que producen una aproximaci%cn de la soluci%cn",162,161,162,162);
+				gotoxy(6,17);
+				printf("del problema (soluci%cn num%crica) o bien un mensaje.",162,130);
+				gotoxy(6,20);
+				printf("La eficiencia en el c%clculo de dicha aproximaci%cn depende, en parte, de la facilidad",160,162);
+				gotoxy(6,21);
+				printf("de implementaci%cn del algoritmo y de las caracter%csticas especiales y limitaciones(computadoras)",162,161);
+				gotoxy(8,24);
+				printf("PRESIONE CUALQUIER TECLA PARA CONTINUAR...");
+				getch();
+				//PÁGINA 2 
+				system("cls");
+				gotoxy(2,1);
+				printf("APLICACI%cN DE M%cTODOS NUM%cRICOS EN SOLUCI%cN DE UN SISTEMA DE ECUACIONES DE 3x3 ",224,144,144,224);
+				gotoxy(2,2);
+				printf("PROYECTO M%cTODOS NUM%cRICOS",144,144);
+				gotoxy(45,3);printf("P%cGINA 2",181);
+				gotoxy(5,8);
+				printf("SISTEMA DE ECUACIONES");
+				gotoxy(6,10);
+				printf("Un sistema de ecuaciones es un modelo matem%ctico que representa sucesos reales ",160);
+				gotoxy(6,11);
+				printf("de forma alfanum%crica. Pueden estar dados en dos, tres o m%cs dimensiones.",130,160);
+				gotoxy(6,12);
+				printf("Para su soluci%cn existen m%ctodos como:",162,130);
+				gotoxy(8,13);
+				printf("%c Sarrus",254);
+				gotoxy(8,14);
+				printf("%c Cramer",254);
+				gotoxy(8,15);
+				printf("%c Iteraciones",254);
+				gotoxy(8,16);
+				printf("%c Gauss-Jordan",254);
+				gotoxy(6,18);
+				printf("Se conforman por un n%cmero de ecuaciones y variables siendo de 3x3, 4x4 o m%cs.",163,160);
+				//MENÚ DE SALIDA
+				fflush(stdin);	
+				gotoxy(8,20);
+				printf("ESCRIBA -SI- PARA VOLVER A P%cGINA 1",181);
+				gotoxy(8,21);
+				printf("ESCRIBA -INICIO- SI DESEA VER OTRA OPCI%cN",224);
+				gotoxy(8,22);
+				printf("ESCRIBA -SALIR- SI DESEA FINALIZAR EL PROGRAMA");
+				gotoxy(10,24);
+				gets(ans);
+				if (strcmpi(ans,"si")==0)
+				{
+					system("cls");
+					goto intro;				
+				}
+				if (strcmpi(ans,"inicio")==0)
+				{
+					system("cls");
+					goto menu;				
+				}
+				if (strcmpi(ans,"salir")==0)
+				{
+					system("cls");
+					goto salir;				
+				} 
+				break;
+			case '2':
+				system("cls");
+    	        system("color 3f");
+				gotoxy(2,3);
+				printf("APLICACI%cN DE M%cTODOS NUM%cRICOS EN SOLUCI%cN DE UN SISTEMA DE ECUACIONES DE 3x3 ",224,144,144,224);
+				gotoxy(2,4);
+				printf("PROYECTO M%cTODOS NUM%cRICOS",144,144);
+				gotoxy(50,5);printf("P%cGINA 1",181);
+				gotoxy(55,8);
+	            printf("%c 2 OBJETIVO GENERAL",254,224);
+				gotoxy(6,12);
+				printf("Mostrar la aplicaci%cn que puede tener un Sistema de Ecuaciones de 3x3 para resolver un",162);
+				gotoxy(6,13);
+				printf("problema com%cn, utilizando el m%ctodo de Gauss-Jordan y el m%ctodo de Regresi%cn lineal",163,130,130,162);
+				gotoxy(6,14);
+				printf("m%cltiple para su soluci%cn ",163,162);
+				// MENÚ DE SALIDA
+				fflush(stdin);	
+				gotoxy(8,21);
+				printf("ESCRIBA -INICIO- SI DESEA VER OTRA OPCI%cN",224);
+				gotoxy(8,22);
+				printf("ESCRIBA -SALIR- SI DESEA FINALIZAR EL PROGRAMA");
+				gotoxy(10,24);
+				gets(ans);
+				if (strcmpi(ans,"inicio")==0)
+				{
+					system("cls");
+					goto menu;				
+				}
+				if (strcmpi(ans,"salir")==0)
+				{
+					system("cls");
+					goto salir;				
+				} 
+		    	break;
+	       	case '3':
+				p1:
+			    system("cls");
+			    system("color 4f");
+				gotoxy(2,1);
+				printf("APLICACI%cN DE M%cTODOS NUM%cRICOS EN SOLUCI%cN DE UN SISTEMA DE ECUACIONES DE 3x3 ",224,144,144,224);
+				gotoxy(2,2);
+				printf("PROYECTO M%cTODOS NUM%cRICOS",144,144);
+				gotoxy(45,3);printf("P%cGINA 1",181);
+				gotoxy(60,5);
+	            printf("%c 3 TEOR%cA",254,214);
+				gotoxy(5,8);
+				printf("GAUSS-JORDAN");
+				gotoxy(6,11);
+				printf("El m%ctodo de Gauss-Jordan utiliza operaciones b%csicas para resolver sistemas ",130,160);
+				gotoxy(6,12);
+				printf("de ecuaciones de n n%cmero de variables.",163);
+				gotoxy(6,14);
+				printf("Para aplicar este m%ctodo s%clo hay que recordar que cada operaci%cn que se realice",130,162,162);
+				gotoxy(6,15);
+				printf("se aplicar%c a toda la fila o la columna en su caso. ",160);
+				gotoxy(6,17);
+				printf("Para poder solucionar f%ccilmente el sistema es recomendable que el n%cmero de filas sea ",160,163);
+				gotoxy(6,18);
+				printf("equivalente al n%cmero de variables. ",163);
+				gotoxy(8,24);
+				printf("PRESIONE CUALQUIER TECLA PARA CONTINUAR...");
+				getch();
+				//PÁGINA 2 
+				p2:
+				system("cls");
+				system("color f0");
+				gotoxy(2,1);
+				printf("APLICACI%cN DE M%cTODOS NUM%cRICOS EN SOLUCI%cN DE UN SISTEMA DE ECUACIONES DE 3x3 ",224,144,144,224);
+				gotoxy(2,2);
+				printf("PROYECTO M%cTODOS NUM%cRICOS",144,144);
+				gotoxy(45,3);printf("P%cGINA 2",181);
+				gotoxy(60,5);
+	            printf("%c 3 TEOR%cA",254,214);
+				gotoxy(5,8);
+				printf("%c PASOS PARA SU SOLUCI%cN (EJEMPLO)",254,224);
+				gotoxy(6,10);
+				printf("  x +2y +z = 3");
+				gotoxy(6,11);
+				printf(" 2x +5y -z = 4");
+				gotoxy(6,12);
+				printf(" 3x -2y -z = 2");
+				//	CÓDIGO PARA LÍMITE IZQUIERDO DE LAS ECUACIONES
+				for(int y=10; y<=12; y++)
+				{
+					gotoxy (5,y);
+					printf ("%c",186);
+				}
+				//		PASO UNO
+				gotoxy(5,15);
+				printf("1.	Se forma la matriz, separando s%clo los coeficientes de la ecuaci%cn",162,162);
+	        	//	CÓDIGOS PARA LAS ESQUINAS DE LA MATRIZ
+				gotoxy(6,17);printf("%c",201);
+				gotoxy(6,21);printf("%c",200);
+				gotoxy(32,17);printf("%c",187);
+				gotoxy(32,21);printf("%c",188);				
+				//	CÓDIGO PARA LÍMITES LATERALES DE LA MATRIZ
+				for(int y=18; y<=20; y++)
+				{
+					gotoxy (6,y);
+					printf ("%c",186);
+					gotoxy (32,y);
+					printf ("%c",186);
+				}
+				// CÓDIGO PARA EL LÍMITE SUPERIOR E INFERIOR DE LA MATRIZ
+				for(int x=7; x<=31; x++)
+				{
+					if(x==12||x==18||x==25)
+					{
+						gotoxy(x,17);
+						printf("%c",203);
+						gotoxy(x,21);
+						printf("%c",202);
+						continue;
+					}
+					gotoxy (x,17);
+					printf ("%c",205);
+					gotoxy (x,21);
+					printf ("%c",205);
+				}
+				//IMPRESIÓN DE MATRIZ
+				gotoxy(7,18);
+	            printf("  1  %c  2  %c   1  %c  3  ",186,186,186);
+				gotoxy(7,19);
+	            printf("  2  %c  5  %c  -1  %c  4  ",186,186,186);
+				gotoxy(7,20);
+	            printf("  3  %c  2  %c  -1  %c  2  ",186,186,186);
+				gotoxy(8,24);
+				printf("PRESIONE CUALQUIER TECLA PARA CONTINUAR...");
+				getch();
+				//PÁGINA 3
+				//		PASO DOS
+				p3:
+				system("cls");
+				gotoxy(2,1);
+				printf("APLICACI%cN DE M%cTODOS NUM%cRICOS EN SOLUCI%cN DE UN SISTEMA DE ECUACIONES DE 3x3 ",224,144,144,224);
+				gotoxy(2,2);
+				printf("PROYECTO M%cTODOS NUM%cRICOS",144,144);
+				gotoxy(45,3);printf("P%cGINA 3",181);
+				gotoxy(60,5);
+	            printf("%c 3 TEOR%cA",254,214);
+				gotoxy(5,7);
+				printf("2.	El objetivo del m%ctodo es llegar a formar una matriz con la siguiente forma",130);
+	        	gotoxy(5,8);
+	        	printf("haciendo uso s%clo de operaciones b%csicas",162,160);
+				//	CÓDIGOS PARA LAS ESQUINAS DE LA MATRIZ
+				gotoxy(6,10);printf("%c",201);//ESQUINA SUPERIOR IZQUIERDA
+				gotoxy(6,14);printf("%c",200);//ESQUINA INFERIOR IZQUIERDA
+				gotoxy(32,10);printf("%c",187);//ESQUINA SUPERIOR DERECHA
+				gotoxy(32,14);printf("%c",188);//ESQUINA INFERIOR DERECHA				
+				//	CÓDIGO PARA LÍMITES LATERALES DE LA MATRIZ
+				for(int y=11; y<=13; y++)
+				{
+					gotoxy (6,y);//IZQUIERDA
+					printf ("%c",186);
+					gotoxy (32,y);//DERECHA
+					printf ("%c",186);
+				}
+				// CÓDIGO PARA EL LÍMITE SUPERIOR E INFERIOR DE LA MATRIZ
+				for(int x=7; x<=31; x++)
+				{
+					if(x==12||x==18||x==25)
+					{
+						gotoxy(x,10);//SUPERIOR
+						printf("%c",203);
+						gotoxy(x,14);//INFERIOR
+						printf("%c",202);
+						continue;
+					}
+					gotoxy (x,10);
+					printf ("%c",205);
+					gotoxy (x,14);
+					printf ("%c",205);
+				}
+				//IMPRESIÓN DE MATRIZ
+				gotoxy(7,11);
+	            printf("  1  %c  0  %c   0  %c  a  ",186,186,186);
+				gotoxy(7,12);
+	            printf("  0  %c  1  %c   0  %c  b  ",186,186,186);
+				gotoxy(7,13);
+	            printf("  0  %c  0  %c   1  %c  c  ",186,186,186);
+				gotoxy(10,17);printf("DONDE LOS VALORES SON: ");
+				gotoxy(11,19);printf("x = a");
+				gotoxy(11,20);printf("y = b");
+				gotoxy(11,21);printf("z = c");			
+				gotoxy(8,24);
+				printf("PRESIONE CUALQUIER TECLA PARA CONTINUAR...");
+				getch();
+				//PÁGINA 4
+				//	PASO TRES
+				p4:
+				system("cls");
+				gotoxy(2,1);
+				printf("APLICACI%cN DE M%cTODOS NUM%cRICOS EN SOLUCI%cN DE UN SISTEMA DE ECUACIONES DE 3x3 ",224,144,144,224);
+				gotoxy(2,2);
+				printf("PROYECTO M%cTODOS NUM%cRICOS",144,144);
+				gotoxy(45,3);printf("P%cGINA 4",181);
+				gotoxy(60,5);
+	            printf("%c 3 TEOR%cA",254,214);
+				gotoxy(5,7);
+				printf("3.	Para facilitar el proceso se recomienda seguir el siguiente orden al resolver",130);
+	        	gotoxy(37,11);
+	        	printf("Considerando (Fila,Columna)...");
+				gotoxy(35,12);
+	        	printf("(3,1) (2,1) (3,2) (1,3) (2,3) (1,2)");
+				textcolor(RED);
+				//	CÓDIGOS PARA LAS ESQUINAS DE LA MATRIZ
+				gotoxy(6,11);printf("%c",201);
+				gotoxy(6,15);printf("%c",200);
+				gotoxy(32,11);printf("%c",187);
+				gotoxy(32,15);printf("%c",188);				
+				//	CÓDIGO PARA LÍMITES LATERALES DE LA MATRIZ
+				for(int y=12; y<=14; y++)
+				{
+					gotoxy (6,y);
+					printf ("%c",186);
+					gotoxy (32,y);
+					printf ("%c",186);
+				}
+				// CÓDIGO PARA EL LÍMITE SUPERIOR E INFERIOR DE LA MATRIZ
+				for(int x=7; x<=31; x++)
+				{
+					if(x==12||x==18||x==25)
+					{
+						gotoxy(x,11);
+						printf("%c",203);
+						gotoxy(x,15);
+						printf("%c",202);
+						continue;
+					}
+					gotoxy (x,11);
+					printf ("%c",205);
+					gotoxy (x,15);
+					printf ("%c",205);
+				}
+				//IMPRESIÓN DE MATRIZ
+				gotoxy(7,12);
+	            printf("     %c  6  %c   4  %c     ",186,186,186);
+				gotoxy(7,13);
+	            printf("  2  %c     %c   5  %c     ",186,186,186);
+				gotoxy(7,14);
+	            printf("  1  %c  3  %c      %c     ",186,186,186);
+				gotoxy(35,14);printf("Este ser%ca el orden en que buscar%camos obtener ceros",161,161);
+				textcolor(BLACK);
+				gotoxy(5,17);printf("La coordenada en donde se encuentre el n%cmero que buscamos ",163);
+				gotoxy(5,18);printf("convertir en 0, ser%c la que nos indique las filas con que ",160);
+				gotoxy(5,19);printf("se trabajar%c para lograrlo",160);
+				gotoxy(5,21);printf("Por ejemplo en la coordenada (3,2) usar%camos las filas 3 y 2",161);			
+				gotoxy(5,22);printf("Y para convertir (2,1) usar%camos las filas 2 y 1",161);			
+				gotoxy(8,24);
+				printf("PRESIONE CUALQUIER TECLA PARA CONTINUAR...");
+				getch();
+				//PÁGINA 5
+				//PASO CUATRO
+				p5:
+				system("cls");
+				gotoxy(2,1);
+				printf("APLICACI%cN DE M%cTODOS NUM%cRICOS EN SOLUCI%cN DE UN SISTEMA DE ECUACIONES DE 3x3 ",224,144,144,224);
+				gotoxy(2,2);
+				printf("PROYECTO M%cTODOS NUM%cRICOS",144,144);
+				gotoxy(45,3);printf("P%cGINA 5",181);
+				gotoxy(60,5);
+	            printf("%c 3 TEOR%cA",254,214);
+				gotoxy(5,7);
+				printf("4.	Una vez teniendo todos los 0, es momento de convertir la diagonal restante en n%cmeros 1,",163);
+	        	gotoxy(5,8);
+				printf("	por medio de divisiones.",130);
+				//	CÓDIGOS PARA LAS ESQUINAS DE LA MATRIZ
+				gotoxy(6,11);printf("%c",201);
+				gotoxy(6,15);printf("%c",200);
+				gotoxy(32,11);printf("%c",187);
+				gotoxy(32,15);printf("%c",188);				
+				//	CÓDIGO PARA LÍMITES LATERALES DE LA MATRIZ
+				for(int y=12; y<=14; y++)
+				{
+					gotoxy (6,y);
+					printf ("%c",186);
+					gotoxy (32,y);
+					printf ("%c",186);
+				}
+				// CÓDIGO PARA EL LÍMITE SUPERIOR E INFERIOR DE LA MATRIZ
+				for(int x=7; x<=31; x++)
+				{
+					if(x==12||x==18||x==25)
+					{
+						gotoxy(x,11);
+						printf("%c",203);
+						gotoxy(x,15);
+						printf("%c",202);
+						continue;
+					}
+					gotoxy (x,11);
+					printf ("%c",205);
+					gotoxy (x,15);
+					printf ("%c",205);
+				}
+				//IMPRESIÓN DE MATRIZ
+				gotoxy(7,12);
+	            printf("  1  %c  0  %c   0  %c  a  ",186,186,186);
+				gotoxy(7,13);
+	            printf("  0  %c  1  %c   0  %c  b  ",186,186,186);
+				gotoxy(7,14);
+	            printf("  0  %c  0  %c   1  %c  c  ",186,186,186);
+				textcolor(RED);
+				gotoxy(5,17);printf("Una vez comprendida la soluci%cn por este M%ctodo, ",162,130);
+				gotoxy(5,18);printf("podemos continuar al planteamiento del problema... ");
+				textcolor(BLACK);		
+				//MENÚ DE SALIDA
+				fflush(stdin);	
+				gotoxy(8,20);
+				printf("ESCRIBA UN N%cMERO -1-2-3-4- PARA REGRESAR A ESA P%cGINA ",233,181);
+				gotoxy(8,21);
+				printf("ESCRIBA -INICIO- SI DESEA VER OTRA OPCI%cN",224);
+				gotoxy(8,22);
+				printf("ESCRIBA -SALIR- SI DESEA FINALIZAR EL PROGRAMA");
+				gotoxy(10,24);
+				gets(ans);
+				if (strcmpi(ans,"1")==0)
+				{
+					system("cls");
+					goto p1;				
+				}
+				if (strcmpi(ans,"2")==0)
+				{
+					system("cls");
+					goto p2;				
+				}
+				if (strcmpi(ans,"3")==0)
+				{
+					system("cls");
+					goto p3;				
+				}
+				if (strcmpi(ans,"4")==0)
+				{
+					system("cls");
+					goto p4;				
+				}
+				if (strcmpi(ans,"inicio")==0)
+				{
+					system("cls");
+					goto menu;				
+				}
+				if (strcmpi(ans,"salir")==0)
+				{
+					system("cls");
+					goto salir;				
+				} 
+				break;
+	        case '4':
+				//EXPLICACIÓN DEL PROBLEMA
+				//	PÁGINA 1
+				ep1:
+				textcolor(BLACK);
+				system("cls");
+				gotoxy(2,1);
+				printf("APLICACI%cN DE M%cTODOS NUM%cRICOS EN SOLUCI%cN DE UN SISTEMA DE ECUACIONES DE 3x3 ",224,144,144,224);
+				gotoxy(2,2);
+				printf("PROYECTO M%cTODOS NUM%cRICOS",144,144);
+				gotoxy(45,3);printf("P%cGINA 1",181);
+				gotoxy(60,5);
+	            printf("%c 4 EXPLICACI%cN DEL PROBLEMA",254,224);
+				gotoxy(5,7);
+				printf("Un establecimiento vende Focos led de tres colores: Blanco, Azul y Rojo. Los precios de cada uno de ellos son: ");
+	        	system("ledrojo.jpg");
+				system("ledazul.png");
+	        	system("ledblanco.jpg");
+				gotoxy(5,8);
+				printf("son $12 pza, $10 pza y $9 pza, respectivamente. Se sabe que las piezas vendidas son 44, el importe total de ");
+				gotoxy(5,9);
+				printf("la venta son $436 y que el n%cmero de leds azules es el doble que el de blancos. Determinar cu%cntos focos ",163,160);
+				gotoxy(5,10);
+				printf("led de cada tipo vendi%c",162);
+				textcolor(BLUE);
+				gotoxy(7,12);printf("x= Led blanco $12");
+				gotoxy(7,13);printf("y= Led azul $10");
+				gotoxy(7,14);printf("z= Led rojo $9");
+				textcolor(GREEN);
+				gotoxy(32,10);printf("x+y+z=44 // 12x+10y+9z=436  //  y=2x");
+				textcolor(RED);
+				gotoxy(29,11);printf("Una vez ordenando las ecuaciones tenemos...");
+				textcolor(BLACK);
+				gotoxy(32,12);printf("%c 12x+10y+9z=436",186);
+				gotoxy(32,13);printf("%c 2x-y=0",186);
+				gotoxy(32,14);printf("%c x+y+z=44",186);
+				gotoxy(5,16);
+				printf("1.	Pasamos el sistema a una matriz para empezar a resolver");
+				//	CÓDIGOS PARA LAS ESQUINAS DE LA MATRIZ
+				gotoxy(6,17);printf("%c",201);
+				gotoxy(6,21);printf("%c",200);
+				gotoxy(32,17);printf("%c",187);
+				gotoxy(32,21);printf("%c",188);				
+				//	CÓDIGO PARA LÍMITES LATERALES DE LA MATRIZ
+				for(int y=18; y<=20; y++)
+				{ 
+					gotoxy (6,y);
+					printf ("%c",186);
+					gotoxy (32,y);
+					printf ("%c",186);
+				}
+				// CÓDIGO PARA EL LÍMITE SUPERIOR E INFERIOR DE LA MATRIZ
+				for(int x=7; x<=31; x++)
+				{
+					if(x==12||x==18||x==25)
+					{
+						gotoxy(x,17);
+						printf("%c",203);
+						gotoxy(x,21);
+						printf("%c",202);
+						continue;
+					}
+					gotoxy (x,17);
+					printf ("%c",205);
+					gotoxy (x,21);
+					printf ("%c",205);
+				}
+				//IMPRESIÓN DE MATRIZ
+				gotoxy(7,18);
+	            printf("  12 %c  10 %c   9  %c 436 ",186,186,186);
+				gotoxy(7,19);
+	            printf("  2  %c  -1 %c   0  %c  0  ",186,186,186);
+				gotoxy(7,20);
+	            printf("  1  %c  1  %c   1  %c  44 ",186,186,186);
+				textcolor(RED);		
+				gotoxy(8,23);
+				printf("PRESIONE CUALQUIER TECLA PARA CONTINUAR...");
+				getch();
+				//	PÁGINA 2
+				ep2:
+	        	system("cls");
+				textcolor(BLACK);
+				gotoxy(2,1);
+				printf("APLICACI%cN DE M%cTODOS NUM%cRICOS EN SOLUCI%cN DE UN SISTEMA DE ECUACIONES DE 3x3 ",224,144,144,224);
+				gotoxy(2,2);
+				printf("PROYECTO M%cTODOS NUM%cRICOS",144,144);
+				gotoxy(45,3);printf("P%cGINA 2",181);
+				gotoxy(60,5);
+	            printf("%c 4 EXPLICACI%cN DEL PROBLEMA",254,224);
+				gotoxy(5,8);
+				printf("2.	Empezamos convirtiendo el n%cmero 1 de la coordenada (3,1) en 0, utilizando F3 y F1",163);
+				//	LLAMADO DE FILAS
+				textcolor(RED);gotoxy(35,10);
+				printf("FILA 3		 1     1     1=	 44");
+				textcolor(BLUE);gotoxy(35,11);
+				printf("FILA 1		12    10     9=	436");
+				textcolor(BLACK);gotoxy(36,12);
+				printf("F3(-12)+ F1 = F3");
+				//	CÓDIGOS PARA LAS ESQUINAS DE LA MATRIZ
+				gotoxy(6,10);printf("%c",201);
+				gotoxy(6,14);printf("%c",200);
+				gotoxy(32,10);printf("%c",187);
+				gotoxy(32,14);printf("%c",188);				
+				//	CÓDIGO PARA LÍMITES LATERALES DE LA MATRIZ
+				for(int y=11; y<=13; y++)
+				{ 
+					gotoxy (6,y);
+					printf ("%c",186);
+					gotoxy (32,y);
+					printf ("%c",186);
+				}
+				// CÓDIGO PARA EL LÍMITE SUPERIOR E INFERIOR DE LA MATRIZ
+				for(int x=7; x<=31; x++)
+				{
+					if(x==12||x==18||x==25)
+					{
+						gotoxy(x,10);
+						printf("%c",203);
+						gotoxy(x,14);
+						printf("%c",202);
+						continue;
+					}
+					gotoxy (x,10);
+					printf ("%c",205);
+					gotoxy (x,14);
+					printf ("%c",205);
+				}
+				//IMPRESIÓN DE MATRIZ
+				gotoxy(7,11);
+	            printf("  12 %c  10 %c   9  %c 436 ",186,186,186);
+				gotoxy(7,12);
+	            printf("  2  %c  -1 %c   0  %c  0  ",186,186,186);
+				gotoxy(7,13);
+	            printf("  0  %c  -2 %c  -3  %c -92 ",186,186,186);
+				gotoxy(5,16);
+				printf("3.	Sustituimos el resultado en F3 y ahora convertimos (2,1) con F2 y F1");
+				//	LLAMADO DE FILAS
+				textcolor(RED);gotoxy(35,19);
+				printf("FILA 2		 2    -1     0=	  0");
+				textcolor(BLUE);gotoxy(35,20);
+				printf("FILA 1		12    10     9=	436");
+				textcolor(BLACK);gotoxy(36,21);
+				printf("F2(-6)+ F1 = F2");
+				//	CÓDIGOS PARA LAS ESQUINAS DE LA MATRIZ
+				gotoxy(6,19);printf("%c",201);
+				gotoxy(6,23);printf("%c",200);
+				gotoxy(32,19);printf("%c",187);
+				gotoxy(32,23);printf("%c",188);				
+				//	CÓDIGO PARA LÍMITES LATERALES DE LA MATRIZ
+				for(int y=20; y<=22; y++)
+				{ 
+					gotoxy (6,y);
+					printf ("%c",186);
+					gotoxy (32,y);
+					printf ("%c",186);
+				}
+				// CÓDIGO PARA EL LÍMITE SUPERIOR E INFERIOR DE LA MATRIZ
+				for(int x=7; x<=31; x++)
+				{
+					if(x==12||x==18||x==25)
+					{
+						gotoxy(x,19);
+						printf("%c",203);
+						gotoxy(x,23);
+						printf("%c",202);
+						continue;
+					}
+					gotoxy (x,19);
+					printf ("%c",205);
+					gotoxy (x,23);
+					printf ("%c",205);
+				}
+				//IMPRESIÓN DE MATRIZ
+				gotoxy(7,20);
+	            printf("  12 %c  10 %c   9  %c 436 ",186,186,186);
+				gotoxy(7,21);
+	            printf("  0  %c  16 %c   9  %c 436 ",186,186,186);
+				gotoxy(7,22);
+	            printf("  0  %c  -2 %c  -3  %c -92 ",186,186,186);
+				textcolor(RED);		
+				gotoxy(8,24);
+				printf("PRESIONE CUALQUIER TECLA PARA CONTINUAR...");
+				getch();
+	        	//	PÁGINA 3
+				ep3:
+	        	system("cls");
+				textcolor(BLACK);
+				gotoxy(2,1);
+				printf("APLICACI%cN DE M%cTODOS NUM%cRICOS EN SOLUCI%cN DE UN SISTEMA DE ECUACIONES DE 3x3 ",224,144,144,224);
+				gotoxy(2,2);
+				printf("PROYECTO M%cTODOS NUM%cRICOS",144,144);
+				gotoxy(45,3);printf("P%cGINA 3",181);
+				gotoxy(60,5);
+	            printf("%c 4 EXPLICACI%cN DEL PROBLEMA",254,224);
+				gotoxy(5,8);
+				printf("4.	Sustituimos en F2 y convertimos (3,2) usando F3 y F2");
+				//	LLAMADO DE FILAS
+				textcolor(RED);gotoxy(35,10);
+				printf("FILA 3		 0    -2    -3=	-92");
+				textcolor(BLUE);gotoxy(35,11);
+				printf("FILA 2		 0    16     9=	436");
+				textcolor(BLACK);gotoxy(36,12);
+				printf("F3(8)+ F2 = F3");
+				//	CÓDIGOS PARA LAS ESQUINAS DE LA MATRIZ
+				gotoxy(6,10);printf("%c",201);
+				gotoxy(6,14);printf("%c",200);
+				gotoxy(32,10);printf("%c",187);
+				gotoxy(32,14);printf("%c",188);				
+				//	CÓDIGO PARA LÍMITES LATERALES DE LA MATRIZ
+				for(int y=11; y<=13; y++)
+				{ 
+					gotoxy (6,y);
+					printf ("%c",186);
+					gotoxy (32,y);
+					printf ("%c",186);
+				}
+				// CÓDIGO PARA EL LÍMITE SUPERIOR E INFERIOR DE LA MATRIZ
+				for(int x=7; x<=31; x++)
+				{
+					if(x==12||x==18||x==25)
+					{
+						gotoxy(x,10);
+						printf("%c",203);
+						gotoxy(x,14);
+						printf("%c",202);
+						continue;
+					}
+					gotoxy (x,10);
+					printf ("%c",205);
+					gotoxy (x,14);
+					printf ("%c",205);
+				}
+				//IMPRESIÓN DE MATRIZ
+				gotoxy(7,11);
+	            printf("  12 %c  10 %c   9  %c 436 ",186,186,186);
+				gotoxy(7,12);
+	            printf("  0  %c  16 %c   9  %c 436 ",186,186,186);
+				gotoxy(7,13);
+	            printf("  0  %c  0  %c -15  %c-300 ",186,186,186);
+				gotoxy(5,16);
+				printf("5.	Sustituimos el resultado en F3 y ahora convertimos (1,3) con F1 y F3");
+				//	LLAMADO DE FILAS
+				textcolor(RED);gotoxy(35,20);
+				printf("FILA 1		12    10     9=	436");
+				textcolor(BLUE);gotoxy(35,21);
+				printf("FILA 3		 0     0   -15=-300");
+				textcolor(BLACK);gotoxy(35,22);
+				printf("(F1(10)+ F3(6))/5= F1	Se divide entre 5 para simplificar");
+				//	CÓDIGOS PARA LAS ESQUINAS DE LA MATRIZ
+				gotoxy(6,19);printf("%c",201);
+				gotoxy(6,23);printf("%c",200);
+				gotoxy(32,19);printf("%c",187);
+				gotoxy(32,23);printf("%c",188);				
+				//	CÓDIGO PARA LÍMITES LATERALES DE LA MATRIZ
+				for(int y=20; y<=22; y++)
+				{ 
+					gotoxy (6,y);
+					printf ("%c",186);
+					gotoxy (32,y);
+					printf ("%c",186);
+				}
+				// CÓDIGO PARA EL LÍMITE SUPERIOR E INFERIOR DE LA MATRIZ
+				for(int x=7; x<=31; x++)
+				{
+					if(x==12||x==18||x==25)
+					{
+						gotoxy(x,19);
+						printf("%c",203);
+						gotoxy(x,23);
+						printf("%c",202);
+						continue;
+					}
+					gotoxy (x,19);
+					printf ("%c",205);
+					gotoxy (x,23);
+					printf ("%c",205);
+				}
+				//IMPRESIÓN DE MATRIZ
+				gotoxy(7,20);
+	            printf("  24 %c  20 %c   0  %c 512 ",186,186,186);
+				gotoxy(7,21);
+	            printf("  0  %c  16 %c   9  %c 436 ",186,186,186);
+				gotoxy(7,22);
+	            printf("  0  %c  0  %c  -15 %c-300 ",186,186,186);
+				textcolor(RED);		
+				gotoxy(8,24);
+				printf("PRESIONE CUALQUIER TECLA PARA CONTINUAR...");
+				getch();
+	        	//	PÁGINA 4
+				ep4:
+	        	textcolor(BLACK);
+				system("cls");
+				gotoxy(2,1);
+				printf("APLICACI%cN DE M%cTODOS NUM%cRICOS EN SOLUCI%cN DE UN SISTEMA DE ECUACIONES DE 3x3 ",224,144,144,224);
+				gotoxy(2,2);
+				printf("PROYECTO M%cTODOS NUM%cRICOS",144,144);
+				gotoxy(45,3);printf("P%cGINA 4",181);
+				gotoxy(60,5);
+	            printf("%c 4 EXPLICACI%cN DEL PROBLEMA",254,224);
+				gotoxy(5,7);
+				printf("6.	Una vez simplificada y sustituida F1, Convertirmos (2,3) con F2 y F3");
+				//	LLAMADO DE FILAS
+				textcolor(RED);gotoxy(35,11);
+				printf("FILA 2		 0    -16     9=	436");
+				textcolor(BLUE);gotoxy(35,12);
+				printf("FILA 3		 0     0    -15=   -300");
+				textcolor(BLACK);gotoxy(36,13);
+				printf("F2(10)+ F3(6)= F2");
+				//	CÓDIGOS PARA LAS ESQUINAS DE LA MATRIZ
+				gotoxy(6,10);printf("%c",201);
+				gotoxy(6,14);printf("%c",200);
+				gotoxy(32,10);printf("%c",187);
+				gotoxy(32,14);printf("%c",188);				
+				//	CÓDIGO PARA LÍMITES LATERALES DE LA MATRIZ
+				for(int y=11; y<=13; y++)
+				{ 
+					gotoxy (6,y);
+					printf ("%c",186);
+					gotoxy (32,y);
+					printf ("%c",186);
+				}
+				// CÓDIGO PARA EL LÍMITE SUPERIOR E INFERIOR DE LA MATRIZ
+				for(int x=7; x<=31; x++)
+				{
+					if(x==12||x==18||x==25)
+					{
+						gotoxy(x,10);
+						printf("%c",203);
+						gotoxy(x,14);
+						printf("%c",202);
+						continue;
+					}
+					gotoxy (x,10);
+					printf ("%c",205);
+					gotoxy (x,14);
+					printf ("%c",205);
+				}
+				//IMPRESIÓN DE MATRIZ
+				gotoxy(7,11);
+	            printf("  24 %c  20 %c   0  %c 512 ",186,186,186);
+				gotoxy(7,12);
+	            printf("  0  %c 160 %c   0  %c2560 ",186,186,186);
+				gotoxy(7,13);
+	            printf("  0  %c  0  %c -15  %c-300 ",186,186,186);
+				gotoxy(5,17);
+				printf("7.	Se sustituye F2 y tomamos (1,2) utilizando F1 y F2");
+				//	LLAMADO DE FILAS
+				textcolor(RED);gotoxy(35,20);
+				printf("FILA 1		24    20     0=	512");
+				textcolor(BLUE);gotoxy(35,21);
+				printf("FILA 2		 0   160     0=2560");
+				textcolor(BLACK);gotoxy(36,22);
+				printf("F1(-8)+ F2 = F1");
+				//	CÓDIGOS PARA LAS ESQUINAS DE LA MATRIZ
+				gotoxy(6,19);printf("%c",201);
+				gotoxy(6,23);printf("%c",200);
+				gotoxy(32,19);printf("%c",187);
+				gotoxy(32,23);printf("%c",188);				
+				//	CÓDIGO PARA LÍMITES LATERALES DE LA MATRIZ
+				for(int y=20; y<=22; y++)
+				{ 
+					gotoxy (6,y);
+					printf ("%c",186);
+					gotoxy (32,y);
+					printf ("%c",186);
+				}
+				// CÓDIGO PARA EL LÍMITE SUPERIOR E INFERIOR DE LA MATRIZ
+				for(int x=7; x<=31; x++)
+				{
+					if(x==12||x==18||x==25)
+					{
+						gotoxy(x,19);
+						printf("%c",203);
+						gotoxy(x,23);
+						printf("%c",202);
+						continue;
+					}
+					gotoxy (x,19);
+					printf ("%c",205);
+					gotoxy (x,23);
+					printf ("%c",205);
+				}
+				//IMPRESIÓN DE MATRIZ
+				gotoxy(7,20);
+	            printf("-192 %c  0  %c   0  %c-1536",186,186,186);
+				gotoxy(7,21);
+	            printf("  0  %c 160 %c   0  %c 2560",186,186,186);
+				gotoxy(7,22);
+	            printf("  0  %c  0  %c  -15 %c -300",186,186,186);
+				textcolor(RED);		
+				gotoxy(8,24);
+				printf("PRESIONE CUALQUIER TECLA PARA CONTINUAR...");
+				getch();
+				//	PÁGINA 5
+	        	textcolor(BLACK);
+				system("cls");
+				gotoxy(2,1);
+				printf("APLICACI%cN DE M%cTODOS NUM%cRICOS EN SOLUCI%cN DE UN SISTEMA DE ECUACIONES DE 3x3 ",224,144,144,224);
+				gotoxy(2,2);
+				printf("PROYECTO M%cTODOS NUM%cRICOS",144,144);
+				gotoxy(45,3);printf("P%cGINA 5",181);
+				gotoxy(60,5);
+	            printf("%c 4 EXPLICACI%cN DEL PROBLEMA",254,224);
+				gotoxy(5,6);
+				printf("8.	Reemplazamos F1 y convertimos todos los n%cmeros de la diagonal en 1 dividiendo",163);
+				//	LLAMADO DE FILAS
+				textcolor(RED);gotoxy(6,7);
+				printf("FILA 1	F1= F1/-192");
+				textcolor(BLUE);gotoxy(6,8);
+				printf("FILA 2	F2= F2/160");
+				textcolor(GREEN);gotoxy(6,9);
+				printf("FILA 3	F3= F3/-15");
+				textcolor(BLACK);
+				//	CÓDIGOS PARA LAS ESQUINAS DE LA MATRIZ
+				gotoxy(6,11);printf("%c",201);
+				gotoxy(6,15);printf("%c",200);
+				gotoxy(32,11);printf("%c",187);
+				gotoxy(32,15);printf("%c",188);				
+				//	CÓDIGO PARA LÍMITES LATERALES DE LA MATRIZ
+				for(int y=12; y<=14; y++)
+				{ 
+					gotoxy (6,y);
+					printf ("%c",186);
+					gotoxy (32,y);
+					printf ("%c",186);
+				}
+				// CÓDIGO PARA EL LÍMITE SUPERIOR E INFERIOR DE LA MATRIZ
+				for(int x=7; x<=31; x++)
+				{
+					if(x==12||x==18||x==25)
+					{
+						gotoxy(x,11);
+						printf("%c",203);
+						gotoxy(x,15);
+						printf("%c",202);
+						continue;
+					}
+					gotoxy (x,11);
+					printf ("%c",205);
+					gotoxy (x,15);
+					printf ("%c",205);
+				}
+				//IMPRESIÓN DE MATRIZ
+				gotoxy(7,12);
+	            printf("  1  %c  0  %c   0  %c  8  ",186,186,186);
+				gotoxy(7,13);
+	            printf("  0  %c  1  %c   0  %c  16 ",186,186,186);
+				gotoxy(7,14);
+	            printf("  0  %c  0  %c   1  %c  20 ",186,186,186);
+				//MENÚ DE SALIDA
+				fflush(stdin);	
+				gotoxy(8,18);
+				printf("ESCRIBA UN N%cMERO -1-2-3-4- PARA REGRESAR A ESA P%cGINA ",233,181);
+				gotoxy(8,19);
+				printf("ESCRIBA -INICIO- SI DESEA VER OTRA OPCI%cN",224);
+				gotoxy(8,20);
+				printf("ESCRIBA -SALIR- SI DESEA FINALIZAR EL PROGRAMA");
+				gotoxy(10,24);
+				gets(ans);
+				if (strcmpi(ans,"1")==0)
+				{
+					system("cls");
+					goto ep1;				
+				}
+				if (strcmpi(ans,"2")==0)
+				{
+					system("cls");
+					goto ep2;				
+				}
+				if (strcmpi(ans,"3")==0)
+				{
+					system("cls");
+					goto ep3;				
+				}
+				if (strcmpi(ans,"4")==0)
+				{
+					system("cls");
+					goto ep4;				
+				}
+				if (strcmpi(ans,"inicio")==0)
+				{
+					system("cls");
+					goto menu;				
+				}
+				if (strcmpi(ans,"salir")==0)
+				{
+					system("cls");
+					goto salir;				
+				} 
+				break;
+	        case '5':
+				system("GaussJordan.exe");
+				break;
+			case '6':
+				//CUESTIONARIO
+				cuestionario:
+				int cal;
+				char r1[1],r2[1],r3[1],r4[1],r5[1],r7[1],r8[1],r9[1],r10[1];
+				cal=0;
+				system("cls");
+    	        system("color f0");
+				gotoxy(2,1);
+				printf("APLICACI%cN DE M%cTODOS NUM%cRICOS EN SOLUCI%cN DE UN SISTEMA DE ECUACIONES DE 3x3 ",224,144,144,224);
+				gotoxy(2,2);
+				printf("PROYECTO M%cTODOS NUM%cRICOS",144,144);
+				gotoxy(45,3);printf("P%cGINA 1",181);
+				gotoxy(70,5);printf("%c 6 CUESTIONARIO",254,224);
+				gotoxy(5,6);printf("INSERTA LA LETRA QUE CORRESPONDA A LA RESPUESTA QUE DESEES DAR...");
+				gotoxy(4,7);printf("PRESIONA CUALQUIER TECLA PARA INICIAR");getch();
+				//		PREGUNTA 1 A ES CORRECTA
+				gotoxy(6,8);		  	
+				printf("1.%cQu%c es un m%ctodo num%crico%c",168,130,130,130,63);
+				gotoxy(7,9);
+				printf("a)Un medio para resolver problemas haciendo aproximaciones a trav%cs de operaciones b%csicas y l%cgica",130,160,162);
+				gotoxy(7,10);
+	        	printf("b)Utilizar formulas predefinidas para resolver problemas");
+            	gotoxy(7,11);
+	    		printf("c)Adivinar el resultado");
+	    		fflush(stdin);
+				gotoxy(8,12);gets(r1);
+				if (strcmpi(r1,"a")==0)
+				{	cal=cal+1;	
+					textcolor(GREEN);gotoxy(10,12);printf("CORRECTO");}
+					else{
+					textcolor(RED);gotoxy(10,12);printf("INCORRECTO");
+					}
+				//		PREGUNTA 2	B ES CORRECTA
+				textcolor(BLACK);
+				gotoxy(6,13);		  	
+				printf("2.%cDe qu%c depende la eficiencia de dicha aproximaci%cn%c",168,130,162,63);
+				gotoxy(7,14);
+				printf("a)Del l%cpiz que uses",160);
+				gotoxy(7,15);
+	        	printf("b)La sencillez delalgoritmo, caracter%csticas especiales y las limitaciones(PC)",161);
+            	gotoxy(7,16);
+	    		printf("c)Ni idea");
+	    		gotoxy(8,17);gets(r2);
+				if (strcmpi(r2,"b")==0)
+				{	cal=cal+1;	
+					textcolor(GREEN);gotoxy(10,17);printf("CORRECTO");}
+					else{
+					textcolor(RED);gotoxy(10,17);printf("INCORRECTO");
+					}
+				//		PREGUNTA 3	B ES CORRECTA
+				textcolor(BLACK);
+				gotoxy(6,18);		  	
+				printf("3.%cQu%c es un sistema de ecuaciones%c",168,130,63);
+				gotoxy(7,19);
+				printf("a)Un conjunto de estrellas",160);
+				gotoxy(7,20);
+	        	printf("b)Modelo matem%ctico que representa sucesos reales de forma alfanum%crica",160,130);
+            	gotoxy(7,21);
+	    		printf("c)Conjunto de herramientas que trabajan entre s%c",161);
+	    		gotoxy(8,22);gets(r3);
+				if (strcmpi(r3,"b")==0)
+				{	cal=cal+1;	
+					textcolor(GREEN);gotoxy(10,22);printf("CORRECTO");}
+					else{
+					textcolor(RED);gotoxy(10,22);printf("INCORRECTO");
+					}
+				//PÁGINA 2
+				system("cls");
+    	        system("color f0");
+				gotoxy(2,1);
+				printf("APLICACI%cN DE M%cTODOS NUM%cRICOS EN SOLUCI%cN DE UN SISTEMA DE ECUACIONES DE 3x3 ",224,144,144,224);
+				gotoxy(2,2);
+				printf("PROYECTO M%cTODOS NUM%cRICOS",144,144);
+				gotoxy(45,3);printf("P%cGINA 2",181);
+				gotoxy(70,5);printf("%c 6 CUESTIONARIO",254,224);
+				gotoxy(5,6);printf("INSERTA LA LETRA QUE CORRESPONDA A LA RESPUESTA QUE DESEES DAR...");
+				//		PREGUNTA 4 A ES CORRECTA
+				gotoxy(6,8);		  	
+				printf("4.%cQu%c conforma a un sistema de ecuaciones%c",168,130,63);
+				gotoxy(7,9);
+				printf("a)Ecuaciones y variables");
+				gotoxy(7,10);
+	        	printf("b)Caracteres y signos");
+            	gotoxy(7,11);
+	    		printf("c)Plumas");
+	    		gotoxy(8,12);gets(r4);
+				if (strcmpi(r4,"a")==0)
+				{	cal=cal+1;	
+					textcolor(GREEN);gotoxy(10,12);printf("CORRECTO");}
+					else{
+					textcolor(RED);gotoxy(10,12);printf("INCORRECTO");
+					}
+				//		PREGUNTA 5 B ES CORRECTA
+				textcolor(BLACK);
+				gotoxy(6,13);		  	
+				printf("5.%cEn cu%cntas dimensiones pueden estar dados%c",168,160,63);
+				gotoxy(7,14);
+				printf("a)Una dimensi%cn",162);
+				gotoxy(7,15);
+	        	printf("b)Dos o m%cs dimensiones",160);
+            	gotoxy(8,16);gets(r5);
+				if (strcmpi(r5,"b")==0)
+				{	cal=cal+1;	
+					textcolor(GREEN);gotoxy(10,16);printf("CORRECTO");}
+					else{
+					textcolor(RED);gotoxy(10,16);printf("INCORRECTO");
+					}
+				//		PREGUNTA 6 SARRUS, CRAMER,ITERACIONES,GAUSS,GAUSS JORDAN, GAUSS-JORDAN
+				char r6[15];
+				textcolor(BLACK);
+				gotoxy(6,17);		  	
+				printf("6. Escribe un m%ctodo que se haya mencionado aqu%c para solucionar un sistema",130,161);
+				gotoxy(8,18);
+				gets(r6);
+				if (strcmpi(r6,"sarrus")==0)
+				{	cal=cal+1;
+					textcolor(GREEN);gotoxy(25,18);printf("CORRECTO");	}				
+				if (strcmpi(r6,"cramer")==0)
+				{	cal=cal+1;
+					textcolor(GREEN);gotoxy(25,18);printf("CORRECTO");	}	
+				if (strcmpi(r6,"iteraciones")==0)
+				{	cal=cal+1;
+					textcolor(GREEN);gotoxy(25,18);printf("CORRECTO");	}	
+				if (strcmpi(r6,"gauss")==0)
+				{	cal=cal+1;	
+					textcolor(GREEN);gotoxy(25,18);printf("CORRECTO");	}	
+				if (strcmpi(r6,"gauss jordan")==0)
+				{	cal=cal+1;	
+					textcolor(GREEN);gotoxy(25,18);printf("CORRECTO");	}	
+				if (strcmpi(r6,"gauss-jordan")==0)
+				{	cal=cal+1;
+					textcolor(GREEN);gotoxy(25,18);printf("CORRECTO");	}	
+				//		PREGUNTA 7 B ES CORRECTA
+				textcolor(BLACK);
+				gotoxy(6,19);		  	
+				printf("7.%cCu%cntos ceros y unos quedan al final por el m%ctodo de Gauss-Jordan%c",168,160,130,63);
+				gotoxy(7,20);
+				printf("a)Ninguno");
+				gotoxy(7,21);
+	        	printf("b)6 ceros y 3 unos");
+            	gotoxy(7,22);
+	    		printf("c)3 ceros y 6 unos");
+	    		gotoxy(8,23);gets(r7);
+				if (strcmpi(r7,"b")==0)
+				{	cal=cal+1;	
+					textcolor(GREEN);gotoxy(10,23);printf("CORRECTO");}
+					else{
+					textcolor(RED);gotoxy(10,23);printf("INCORRECTO");
+					}
+				textcolor(BLACK);
+				gotoxy(25,24);
+				printf("PRESIONE CUALQUIER TECLA PARA CONTINUAR...");
+				getch();
+				//PÁGINA 3
+				system("cls");
+				gotoxy(2,1);
+				printf("APLICACI%cN DE M%cTODOS NUM%cRICOS EN SOLUCI%cN DE UN SISTEMA DE ECUACIONES DE 3x3 ",224,144,144,224);
+				gotoxy(2,2);
+				printf("PROYECTO M%cTODOS NUM%cRICOS",144,144);
+				gotoxy(45,3);printf("P%cGINA 3",181);
+				gotoxy(70,5);printf("%c 6 CUESTIONARIO",254,224);
+				gotoxy(5,6);printf("INSERTA LA LETRA QUE CORRESPONDA A LA RESPUESTA QUE DESEES DAR...");
+				//		PREGUNTA 8 A ES CORRECTA
+				gotoxy(6,8);		  	
+				printf("8.%cQu%c orden se recomienda para el M%ctodo de Gauss-Jordan%c",168,130,130,63);
+				gotoxy(7,9);
+				printf("a)(3,1) (2,1) (3,2) (1,3) (2,3) (1,2)");
+				gotoxy(7,10);
+	        	printf("b)(3,3) (2,2) (1,1)");
+            	gotoxy(7,11);
+	    		printf("c)No recuerdo");
+	    		gotoxy(8,12);gets(r8);
+				if (strcmpi(r8,"a")==0)
+				{	cal=cal+1;	
+					textcolor(GREEN);gotoxy(10,12);printf("CORRECTO");}
+					else{
+					textcolor(RED);gotoxy(10,12);printf("INCORRECTO");
+				}		
+				//		PREGUNTA 9 B CORRECTA
+				textcolor(BLACK);
+				gotoxy(6,13);		  	
+				printf("9.%cEn qu%c se diferencia el M%ctodo de Gauss-Jordan al de Gauss%c",168,130,130,63);
+				gotoxy(7,14);
+				printf("a)Ni idea");
+				gotoxy(7,15);
+	        	printf("b)Gauss-Jordan busca dejar la matriz en ceros y unos mientras que en Gauss basta");
+            	gotoxy(7,16);
+            	printf("con que se eliminen los 3 ceros de la esquina inferior izquierda");
+				gotoxy(8,17);gets(r9);
+				if (strcmpi(r9,"b")==0)
+				{	cal=cal+1;	
+					textcolor(GREEN);gotoxy(10,17);printf("CORRECTO");}
+					else{
+					textcolor(RED);gotoxy(10,17);printf("INCORRECTO");
+					}
+				//		PREGUNTA 10
+				textcolor(BLACK);
+				gotoxy(6,18);		  	
+				printf("10.	Menciona que filas usar%cas para convertir a cero la coordenada (3,1)",161);
+				gotoxy(7,19);
+				printf("a)F1 y F2");
+				gotoxy(7,20);
+	        	printf("b)F2 y F3");
+            	gotoxy(7,21);
+            	printf("c)F3 y F1");
+				gotoxy(8,22);gets(r10);	
+				if (strcmpi(r10,"c")==0)
+				{	cal=cal+1;
+					textcolor(GREEN);gotoxy(10,22);printf("CORRECTO");	}
+					else{
+					textcolor(RED);gotoxy(10,22);printf("INCORRECTO");
+					}	
+				textcolor(BLACK);	
+				gotoxy(25,24);
+				printf("PRESIONE CUALQUIER TECLA PARA CONTINUAR...");
+				getch();
+				//PÁGINA DE RESPUESTA
+				system("cls");
+				gotoxy(2,1);
+				printf("APLICACI%cN DE M%cTODOS NUM%cRICOS EN SOLUCI%cN DE UN SISTEMA DE ECUACIONES DE 3x3 ",224,144,144,224);
+				gotoxy(2,2);
+				printf("PROYECTO M%cTODOS NUM%cRICOS",144,144);
+				gotoxy(45,3);printf("P%cGINA 4",181);
+				gotoxy(70,5);printf("%c 6 CUESTIONARIO",254,224);
+				gotoxy(5,9);printf("CUESTIONARIO COMPLETADO");
+				gotoxy(6,15);		  	
+				printf("CALIFICACI%cN: %d",224,cal);
+				//MENÚ DE SALIDA
+				fflush(stdin);	
+				gotoxy(8,19);
+				printf("ESCRIBA -SI- PARA REINTENTAR EL CUESTIONARIO",181);
+				gotoxy(8,20);
+				printf("ESCRIBA -INICIO- SI DESEA VER OTRA OPCI%cN",224);
+				gotoxy(8,21);
+				printf("ESCRIBA -SALIR- SI DESEA FINALIZAR EL PROGRAMA");
+				gotoxy(10,23);
+				gets(ans);
+				if (strcmpi(ans,"si")==0)
+				{
+					system("cls");
+					goto cuestionario;				
+				}
+				if (strcmpi(ans,"inicio")==0)
+				{
+					system("cls");
+					goto menu;				
+				}
+				if (strcmpi(ans,"salir")==0)
+				{
+					system("cls");
+					goto salir;				
+				} 
+				break;
+
+			default:
+	        	//REINICIO
+		    	system("cls");
+				system("color 4f");
+				goto menu;
+	}
+	salir:
+	system("cls");
+	system("color 0f");
+	gotoxy(7,25);
+	printf("GRACIAS POR EJECUTAR ESTE PROGRAMA, PRESIONE CUALQUIER TECLA PARA SALIR");
+	getch();
+}
