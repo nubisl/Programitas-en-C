@@ -1,0 +1,33 @@
+//TABLA DE MULTIPLICAR LIBRE
+//PROGRAMA 39
+//05 DE JUNIO DEL 2018
+
+#include<conio.h>
+#include<stdio.h>
+#include<stdlib.h>
+
+int n,cont,m;
+main( )
+{
+		cont=0;
+  		system("color 5f");
+ 		gotoxy(2,2);
+		printf("BIENVENIDO AL PROGRAMA 39");
+ 		gotoxy(2,3);
+ 		printf("TABLA DE MULTIPLICAR");
+ 		gotoxy(5,7);
+ 		printf("INTRODUCE EL MULTIPLICADOR BASE");
+      gotoxy(5,8);
+		scanf("%d",&n);
+      gotoxy(5,9);
+      gotoxy(1,10);
+	for (cont=1;cont<=10;cont++)
+     	{
+         m=n*cont;
+	      printf("\t%d * %d = %d\n",n,cont,m);
+
+      }
+		gotoxy(50,3);
+      printf("OPERACION FINALIZADA");
+ 	getch();
+}
