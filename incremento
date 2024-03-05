@@ -1,0 +1,22 @@
+//INCREMENTO DE SALARIO , PROGRAMA 4
+//06 DE ABRIL DEL 2018
+/*bisil grupito a*/
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+float s,sn;
+main( )
+{
+	system("color 3f");
+	gotoxy(32,7);
+	printf("BIENVENIDO AL PROGRAMA 4");
+	gotoxy(24,9);
+	printf("INCREMENTO DEL 17 PORCIENTO EN SALARIO");
+	gotoxy(6,13);
+	printf("PROPORCIONA TU ULTIMO SALARIO\t");
+	scanf("%f",&s);
+	sn=s*(1.17);
+	gotoxy(9,15);
+	printf("EL NUEVO SALARIO ES: %f",sn);
+	getch();
+}
