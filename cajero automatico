@@ -1,0 +1,108 @@
+//CAJERO AUTOMÁTICO
+//PROGRAMA 32
+//27 DE MAYO DEL 2018
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<conio.h>
+
+int m,t;
+char s,n[4];
+main ( )
+{
+	system("color 9f");
+   gotoxy(2,2);
+  	printf("BIENVENIDO AL PROGRAMA 32\n");
+   gotoxy(32,7);
+  	printf("CAJERO AUTOMATICO");
+   gotoxy(6,10);
+  	printf("SELECCIONA LA OPERACION QUE DESEAS REALIZAR: ");
+	gotoxy(8,12);
+   printf("%c 1 CONSULTA DE SALDO ",254);
+   gotoxy(8,13);
+   printf("%c 2 RETIRO DE EFECTIVO ",254);
+	gotoxy(8,14);
+   printf("%c 3 CAMBIO DE NIP ",254);
+   gotoxy(54,15);
+   printf("%c 4 RETIRO SIN TARJETA ",254);
+   gotoxy(9,16);
+	scanf("%c",&s);
+   switch (s)
+   	{
+			case '1':
+            system("cls");
+            system("color 9f");
+				gotoxy(8,6);
+            printf("CONSULTA DE SALDO");
+			  	gotoxy(28,7);
+				printf("INSERTE TARJETA...");
+				gotoxy(7,9);
+				printf("INGRESE SU NIP ");
+				gotoxy(7,10);
+            gets(n);
+            gotoxy(8,11);
+            printf("SU SALDO ES DE $3,500.00MXN ");
+            break;
+			case '2':
+            system("cls");
+            system("color 9f");
+				gotoxy(8,6);
+            printf("RETIRO DE EFECTIVO");
+			  	gotoxy(28,7);
+				printf("INSERTE TARJETA...");
+				gotoxy(7,9);
+				printf("INGRESE SU NIP ");
+				gotoxy(7,10);
+            gets(n);
+            gotoxy(7,11);
+            printf("INSERTE EL MONTO QUE DESEA RETIRAR");
+            gotoxy(7,12);
+            scanf("%d",&m);
+            gotoxy(7,13);
+            printf("IMPRIMIENDO COMPROBANTE");
+            gotoxy(7,14);
+            printf("RETIRE SU EFECTIVO");
+            break;
+         case '3':
+         	system("cls");
+            system("color 9f");
+				gotoxy(8,6);
+            printf("CAMBIO DE NIP");
+			  	gotoxy(28,7);
+				printf("INSERTE TARJETA...");
+				gotoxy(7,9);
+				printf("INGRESE SU NIP ");
+				gotoxy(7,10);
+				gets(n);
+            printf("INGRESE SU NUEVO NIP");
+            gotoxy(7,11);
+            gets(n);
+            gotoxy(7,12);
+            printf("NIP MODIFICADO");
+            gotoxy(7,13);
+            printf("IMPRIMIENDO COMPROBANTE");
+            break;
+         case '4':
+         	system("cls");
+            system("color 9f");
+				gotoxy(8,6);
+            printf("RETIRO SIN TARJETA");
+				gotoxy(7,9);
+				printf("INSERTE EL CODIGO QUE RECIBIO ");
+				gotoxy(7,10);
+            scanf("%c",&n);
+            gotoxy(7,11);
+            printf("IMPRIMIENDO COMPROBANTE");
+            gotoxy(7,12);
+            printf("RETIRE SU EFECTIVO");
+            break;
+		default:
+         system("cls");
+			system("color 4f");
+		   gotoxy(32,12);
+      	printf("OPCION INVALIDA");
+         gotoxy(30,13);
+         printf("PRESIONE PARA SALIR");
+	  	}
+	getch();
+}
