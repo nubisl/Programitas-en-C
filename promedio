@@ -1,0 +1,28 @@
+//PROMEDIO SEMANAL CORRIDO , PROGRAMA 6
+//06 DE ABRIL DEL 2018
+/**/
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+float l,m,v,p;
+main( )
+{
+	system("color 3f");
+	gotoxy(30,7);
+	printf("BIENVENIDO AL PROGRAMA 6");
+	gotoxy(24,9);
+	printf("INGRESA TIEMPO CRONOMETRADO");
+	gotoxy(7,13);
+	printf("LUNES\t");
+	scanf("%f",&l);
+	gotoxy(7,15);
+	printf("MIERCOLES\t");
+	scanf("%f",&m);
+	gotoxy(7,17);
+	printf("VIERNES\t");
+	scanf("%f",&v);
+	p=(l+m+v)/3;
+	gotoxy(7,20);
+	printf("EL TIEMPO PROMEDIO SEMANAL ES: %f",p);
+	getch();
+}
