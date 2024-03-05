@@ -1,0 +1,70 @@
+/*PRIMER DEPARTAMENTAL MÉTODOS NUMÉRICOS
+MÉTODO DEL TRAPECIO SIMPLE*/
+#include <stdio.h>
+#include <stdlib.h> 
+#include <conio.h> 
+#include <math.h>
+float linf,lsup,a,b,x1,fa,fb,fx1,Ea,Aa,An,a1,a2,b1,b2,linf1,r1;
+main()
+{
+	system("color 3f");
+	gotoxy(27,9);
+	printf("INSTITUTO POLIT%cCNICO NACIONAL",144);	
+	gotoxy(16,11);
+	printf("X");
+	gotoxy(26,13);
+	printf("X");
+	gotoxy(33,15);
+	printf("M%cTODOS NUM%cRICOS",144,144);
+	gotoxy(29,17);
+	printf("X",181,224);
+	gotoxy(6,24);
+	printf("PRESIONE CUALQUIER TECLA PARA CONTINUAR");	
+	getch();
+	system("cls");
+	system("color 5f");
+	gotoxy(5,5);
+	printf("Funci%cn: %c(x)=x%cdx",162,159,253);
+	gotoxy(5,6);
+	printf("Inserte el l%cmite inferior\t",161);
+	scanf("%f",&linf);
+	gotoxy(5,7);
+	printf("Inserte el l%cmite superior\t",161);
+	scanf("%f",&lsup);
+	gotoxy(5,8);
+	system("cls");
+	system("color 5f");
+	gotoxy(5,5);
+	printf("Funci%cn: %c(x)=x%cdx	Lim inf=%.0f   Lim sup=%.0f",162,159,253,linf,lsup);
+	//MÉTODO NUMÉRICO
+	a=linf;
+	b=lsup;
+	gotoxy(5,7);
+	printf("a=%.4f	b=%.4f ",a,b);
+	fa=(pow(a,2));
+	fb=(pow(b,2));
+	//An= Área numérica y Aa= Área analítica
+	//An=(b-a)(fb+fa)/2
+	r1=b-a;
+	An=((r1)*((fb+fa)/2));
+	gotoxy(5,9);
+	printf("f(a)=%.4f f(b)=%.4f ",fa,fb);
+	//MÉTODO ANALÍTICO
+	/* Según las fórmulas analíticas, la Integral
+	A=x²dx Se resuelve A=x³/3
+	Y para los límites
+	lim=((lsup³)/3)-(linf³)/3)
+	Las siguientes dos líneas son para calcular el límite dentro de la fórmula	
+	*/
+	a1=(pow(linf,3))/3;
+	b1=(pow(lsup,3))/3;
+	Aa=(b1-a1);
+	Ea=Aa-An;
+	gotoxy(5,11);
+	printf("An= %.4f u%c",An,253);
+	gotoxy(5,13);
+	printf("Aa= %.4f u%c",Aa,253);
+	gotoxy(5,16);
+	printf("Error de Aproximaci%cn %fu%c",162,Ea,253);
+	getch();
+}
