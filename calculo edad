@@ -1,0 +1,46 @@
+//CALCULO DE EDAD, PROGRAMA 10
+//23 DE ABRIL DEL 2018
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+//años, meses,semanas, días, horas, minutos, segundos
+float a,me,se,d,h,mi,s;
+main()
+{
+	system("color 0d");
+   gotoxy(29,7);
+	printf("BIENVENIDO AL PROGRAMA 10");
+	gotoxy(34,9);
+	printf("CALCULO DE EDAD");
+	gotoxy(5,14);
+	printf("INGRESA TU EDAD EN A%cOS CON NUMERO ",165);
+	scanf("%f",&a);
+	me=a*12;
+	se=me*4.34524;
+	d=se*7;
+	h=d*24;
+	mi=h*60;
+	s=mi*60;
+	system("cls");
+	system("color 0d");
+	gotoxy(29,7);
+	printf("BIENVENIDO AL PROGRAMA 10");
+	gotoxy(34,9);
+	printf("CALCULO DE EDAD");
+	gotoxy(6,13);
+	printf("TU EDAD ES %.1f A%cOS ",a,165);
+	gotoxy(6,14);
+	printf("%.1f MESES ",me);
+	gotoxy(6,15);
+	printf("%.1f SEMANAS ",se);
+	gotoxy(6,16);
+	printf("%.1f DIAS ",d);
+	gotoxy(6,17);
+	printf("%.1f HORAS ",h);
+	gotoxy(6,18);
+	printf("%.1f MINUTOS ",mi);
+	gotoxy(6,19);
+	printf("%.1f SEGUNDOS ",s);
+	getch();
+}
