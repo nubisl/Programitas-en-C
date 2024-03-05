@@ -1,0 +1,96 @@
+/* TERCER DEPARTAMENTAL MÉTODOS NUMÉRICOS
+
+MÉTODO DE INTERPOLACIÓN CUADRÁTICA CON COEFICIENTES INDETERMINADOS */
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+#include<math.h>
+
+float x1,x2,x3,x4,x5,x6,fx0,fx1,fx2,fx3,fx4,fx5,fx6,f1x1,f1x2,f1x3,f1x4,f1x5,f1x6,Ea1,Ea2,Ea3,Ea4,Ea5,Ea6,a,b,c,Ep1,Ep2,Ep3,Ep4,Ep5,Ep6;
+
+int main( )
+{
+	system("color 3f");
+	gotoxy(27,9);
+	printf("INSTITUTO POLIT%cCNICO NACIONAL",144);
+	gotoxy(16,11);
+	printf("A");
+	gotoxy(26,13);
+	printf("U");
+	gotoxy(33,15);
+	printf("M%cTODOS NUM%cRICOS",144,144);
+	gotoxy(29,17);
+	printf("",181,224);
+	gotoxy(6,24);
+	printf("PRESIONE CUALQUIER TECLA PARA CONTINUAR");
+	getch();
+	system("cls");
+	system("color 5f");
+	gotoxy(65,2);
+	printf("EJERCICIO 3");
+	gotoxy(5,5);
+	printf ("METODO INTERPOLACI%cN CUADRATICA CON COEFICIENTES INDETERMINADOS",224);
+	//IMPRESIÓN FINAL DE VALORES EN x y f(x)
+	x1=1; fx1=0;
+	x2=1.5; fx2=0.4054;
+	x3=2; fx3=0.6931;
+	x4=2.5; fx4=0.9162;
+	x5=3; fx5=1.0986;
+	x6=3.5; fx6=1.2527;
+	gotoxy(4,10);
+   	printf("VALORES EN ( X , Y ) ");
+   	gotoxy(5,11);
+	printf("   P1 (%.0f,%.f)",x1,fx1);
+	gotoxy(5,12);
+	printf("%c P2 (%.1f,%0.4f)",254,x2,fx2);
+    gotoxy(5,13);
+	printf("   P3 (%.0f,%0.4f)",x3,fx3);
+   	gotoxy(5,14);
+	printf("%c P4 (%.1f,%.4f)",254,x4,fx4);
+   	gotoxy(5,15);
+	printf("   P5 (%.0f,%.4f)",x5,fx5);
+	gotoxy(5,16);
+	printf("%c P6 (%.1f,%.4f)",254,x6,fx6);
+	//VALORES OBTENIDOS CON EL SISTEMA DE ECUACIONES
+	a=-0.0853;
+	b=0.8522;
+	c=-0.6808;
+	
+	//EVALUACIÓN 
+	f1x1=(-0.0853*pow(x1,2))+(0.8522*x1)-0.6808;
+	f1x2=(-0.0853*pow(x2,2))+(0.8522*x2)-0.6808;
+	f1x3=(-0.0853*pow(x3,2))+(0.8522*x3)-0.6808;
+	f1x4=(-0.0853*pow(x4,2))+(0.8522*x4)-0.6808;
+	f1x5=(-0.0853*pow(x5,2))+(0.8522*x5)-0.6808;
+	f1x6=(-0.0853*pow(x6,2))+(0.8522*x6)-0.6808;
+
+	Ea1=f1x1-fx1;
+	Ea2=f1x2-fx2;
+	Ea3=(f1x3-fx3)*-1;
+	Ea4=f1x4-fx4;
+	Ea5=f1x5-fx5;
+	Ea6=f1x6-fx6;
+	
+	Ep1=(Ea1*100)/fx1;
+	Ep2=(Ea2*100)/fx2;
+	Ep3=(Ea3*100)/fx3;
+	Ep4=(Ea4*100)/fx4;
+	Ep5=(Ea5*100)/fx5;
+	Ep6=(Ea6*100)/fx6;
+	
+	gotoxy(3,17);
+	printf("I	x	f(x)	x2	f2(x)	Ea	Ep");
+	gotoxy(3,19);
+   	printf("1	%.0f	%.0f	%.0f	%.4f	%.4f	%.0f",x1,fx1,x1,f1x1,Ea1,Ep1);
+	gotoxy(3,20);
+   	printf("2	%.1f	%.4f	%.1f	%.4f	%.4f	%.3f",x2,fx2,x2,f1x2,Ea2,Ep2);
+	gotoxy(3,21);
+   	printf("3	%.0f	%.4f	%.0f	%.4f	%.4f	%.2f",x3,fx3,x3,f1x3,Ea3,Ep3);
+	gotoxy(3,22);
+   	printf("4	%.1f	%.4f	%.1f	%.4f	%.4f	%.3f",x4,fx4,x4,f1x4,Ea4,Ep4);
+	gotoxy(3,23);
+   	printf("5	%.0f	%.4f	%.0f	%.4f	%.4f	%.4f",x5,fx5,x5,f1x5,Ea5,Ep5);	
+   	gotoxy(3,24);
+   	printf("6	%.1f	%.4f	%.0f	%.4f	%.4f	%.4f",x6,fx6,x6,f1x6,Ea6,Ep6);	
+	getch();
+}
