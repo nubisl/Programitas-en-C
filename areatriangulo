@@ -1,0 +1,25 @@
+//AREA DE UN TRIANGULO, PROGRAMA 2
+//06 DE ABRIL DEL 2018
+/*BISIL GRUPITO A*/
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+float b,h,A;
+main( )
+{
+	system("color 3f");
+	gotoxy(32,6);
+	printf("BIENVENIDO AL PROGRAMA 2");
+	gotoxy(28,8);
+	printf("CALCULA EL AREA DE UN TRIANGULO");
+	gotoxy(6,11);
+	printf("INGRESE LA LONGITUD DE LA BASE\t");
+	scanf("%f",&b);
+	gotoxy(6,13);
+	printf("INGRESE LA LONGITUD DE LA ALTURA\t");
+	scanf("%f",&h);
+	A=(b*h)/2;
+	gotoxy(6,16);
+	printf("EL AREA DEL TRIANGULO ES DE: %f",A);
+	getch();
+}
