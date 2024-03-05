@@ -1,0 +1,28 @@
+//CARATULA, PROGRAMA 1
+//03 DE ABRIL DEL 2018
+/*NUBISIL, GRUPITO A*/
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+main( )
+{
+	system("color 3f");
+	gotoxy(28,3);
+	printf("INSTITUTO POLITECNICO NACIONAL");
+	gotoxy(16,5);
+	printf("ESCUELITA X");
+	gotoxy(27,7);
+	printf("ESCUELITA Y");
+	gotoxy(29,9);
+	printf("FUNDAMENTOS DE PROGRAMACION");
+	gotoxy(26,12);
+	printf("INGENIERIA");
+	gotoxy(3,17);
+	printf("ALUMNA: NUBISIL");
+	gotoxy(3,19);
+	printf("PROFESOR: JUANITO");
+	gotoxy(3,21);
+	printf("GRUPITO A");
+	printf("\n\n\n\t\t\t\t\t\t\t\tABRIL 2018");
+	getch();
+}
