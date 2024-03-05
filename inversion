@@ -1,0 +1,39 @@
+//INVERSIÓN DE 3 PERSONAS , PROGRAMA 5
+//06 DE ABRIL DEL 2018
+/*BISIL GRUPO A*/
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+float i1,i2,i3,s,t1,t2,t3;
+main( )
+{
+	system("color 3f");
+	gotoxy(30,7);
+	printf("BIENVENIDO AL PROGRAMA 5");
+	gotoxy(24,9);
+	printf("PORCENTAJE DE INVERSION REALIZADA");
+	gotoxy(6,13);
+	printf("PROPORCIONA EL MONTO QUE APORTO CADA UNO");
+	gotoxy(7,15);
+	printf("PERSONA 1 ");
+	scanf("%f",&i1);
+	gotoxy(7,17);
+	printf("PERSONA 2 ");
+	scanf("%f",&i2);
+	gotoxy(7,19);
+	printf("PERSONA 3 ");
+	scanf("%f",&i3);
+	s=i1+i2+i3;
+	t1=(i1*100)/s;
+	t2=(i2*100)/s;
+	t3=(i3*100)/s;
+	gotoxy(7,20);
+	printf("PERSONA 1 HIZO UN APORTE DEL %f",t1);
+	gotoxy(7,22);
+	printf("PERSONA 2 HIZO UN APORTE DEL %f",t2);
+	gotoxy(7,24);
+	printf("PERSONA 3 HIZO UN APORTE DEL %f",t3);
+	gotoxy(7,26);
+	printf("EL TOTAL APORTADO FUE %f",s);
+	getch();
+}
