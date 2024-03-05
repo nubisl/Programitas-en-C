@@ -1,0 +1,82 @@
+//OPERACIONES ARITMETICAS , PROGRAMA 7
+//06 DE ABRIL DEL 2018
+/*X*/
+#include <conio.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+float n1,n2,s,r,m,d;
+double sn,sin1,cs,cos1,tn,tan1,ra,ra1,po,po1;
+main( )
+{
+	system("color 9f");
+	gotoxy(30,7);
+	printf("BIENVENIDO AL PROGRAMA 7");
+	gotoxy(24,9);
+	printf("OPERACIONES ARITMETICAS");
+	gotoxy(7,13);
+	printf("INGRESA EL PRIMER NUMERO\t");
+	scanf("%f",&n1);
+	gotoxy(7,15);
+	printf("INGRESA EL SEGUNDO NUMERO\t");
+	scanf("%f",&n2);
+	s=n1+n2;
+	r=n1-n2;
+	m=n1*n2;
+	d=n1/n2;
+	system("cls");
+	system("color 6f");
+	gotoxy(31,4);
+	printf("RESUMEN DEL PROGRAMA 7");
+	gotoxy(24,6);
+	printf("OPERACIONES ARITMETICAS");
+	gotoxy(7,9);
+	printf("LA SUMATORIA DE %.1f Y %.1f ES %.1f",n1,n2,s);
+	gotoxy(7,10);
+	printf("LA DIFERENCIA DE %.1f Y %.1f ES %.1f",n1,n2,r);
+	gotoxy(7,11);
+	printf("LA MULTIPLICACION DE %.1f Y %.1f ES %.1f",n1,n2,m);
+	gotoxy(7,12);
+	printf("LA DIVISION DE %.1f Y %.1f ES %.1f",n1,n2,d);
+	//SENO NUMERO 1
+	gotoxy(7,14);
+	sn=sin(n1*3.14159/180);
+	printf("EL SENO DE %.1f ES %lf",n1,sn);
+	//SENO NUMERO 2
+	gotoxy(7,15);
+	sin1=sin(n2*3.14159/180);
+	printf("EL SENO DE %.1f ES %lf",n2,sin1);
+	//COSENO NUMERO 1
+	gotoxy(7,16);
+	cs=cos(n1*3.14159/180);
+	printf("EL COSENO DE %.1f ES %lf",n1,cs);
+	//COSENO NUMERO 2
+	gotoxy(7,17);
+	cos1=cos(n2*3.14159/180);
+	printf("EL COSENO DE %.1f ES %lf",n2,cos1);
+	//TANGENTE NUMERO 1
+	gotoxy(7,18);
+	tn=tan(n1*3.14159/180);
+	printf("LA TANGENTE DE %.1f ES %lf",n1,tn);
+	//TANGENTE NUMERO 2
+	gotoxy(7,19);
+	tan1=tan(n2*3.14159/180);
+	printf("LA TANGENTE DE %.1f ES %lf",n2,tan1);
+	//RAIZ NUMERO 1
+	gotoxy(7,20);
+	ra=sqrt(n1);
+	printf("LA RAIZ CUADRADA DE %.1f ES %lf",n1,ra);
+	//RAIZ NUMERO 2
+	gotoxy(7,21);
+	ra1=sqrt(n2);
+	printf("LA RAIZ CUADRADA DE %.1f ES %lf",n2,ra1);
+	//POTENCIA NUMERO 1 A NUMERO 2
+	gotoxy(7,22);
+	po=pow(n1,n2);
+	printf("LA POTENCIA DE %.1f ELEVADO A %1.f ES %lf",n1,n2,po);
+	//POTENCIA NUMERO 2 A NUMERO 1
+	gotoxy(7,23);
+	po1=pow(n2,n1);
+	printf("LA POTENCIA DE %.1f ELEVADO A %1.f ES %lf",n2,n1,po1);
+	getch();
+}
