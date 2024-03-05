@@ -1,0 +1,143 @@
+/*	PRIMER EXAMEN DEPARTAMENTAL METODS NUMÉRICOS
+	
+EN UNA RAMPA SE DESA CALCULAR EL ÁREA QUE ESTÁ DEBAJO DE LA MISMA PARA CON ELLO
+PODER OBTENER EL VOLUMEN DEL RELLENO QUE SE VA A OCUPAR, SE HACE EL LEVANTAMIENTO 
+FÍSICO DE UNA RAMPA SIMILAR CONSIGUIENDOSE LOS SIGUIENTES DATOS
+	A) 0,5
+	B) 1,2
+	C) 2,1
+	D) 3,0.42
+	E) 4,0.1
+	F) 5,0
+LA BASE LA RAMPA ES UN CUADRO. CALCULAR POR EL MÉTODO DEL TRAPECIO CON SEGMENTOS 
+MÚLTIPLES O MÉTODO DE SIMPSON COMBINADO
+*/
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+#include <math.h>
+float n,h,a,b,x0,x1,x2,x3,x4,x5,fx0,fx1,fx2,fx3,fx4,fx5,s,Aa,An,r,r1,res,Ea;
+
+main ()
+{
+	system("color 3f");
+	gotoxy(27,9);
+	printf("INSTITUTO POLITECNICO NACIONAL");
+	gotoxy(17,11);
+	printf("E");
+	gotoxy(25,13);
+	printf("I");
+	gotoxy(33,15);
+	printf("METODOS NUMERICOS");
+	gotoxy(27,16);
+	printf("PRIMER EXAMEN DEPARTAMENTAL");
+	gotoxy(15,20);
+	printf("S");
+	gotoxy(15,21);
+	printf("G");
+	gotoxy(2,25);
+	printf("PRESIONE CUALQUIER TECLA PARA CONTINUAR");
+	getch();
+	system("cls");
+	system("color 5f");
+	gotoxy(3,4);
+	printf("TENIENDO LOS SIGUIENTES DATOS");
+	gotoxy(4,5);
+	printf("x0= 0	f(x0)= 5");
+	gotoxy(4,6);
+	printf("x1= 1	f(x1)= 2");
+	gotoxy(4,7);
+	printf("x2= 2	f(x2)= 1");
+	gotoxy(4,8);
+	printf("x3= 3	f(x3)= 0.42");
+	gotoxy(4,9);
+	printf("x4= 4	f(x4)= 0.1");
+	gotoxy(4,10);
+	printf("x5= 5	f(x4)= 0");
+	gotoxy(3,12);
+	printf("INSERTE EL VALOR DE x EN ORDEN \n");
+	scanf("%f",&x0);
+	scanf("%f",&x1);
+	scanf("%f",&x2);
+	scanf("%f",&x3);
+	scanf("%f",&x4);
+	scanf("%f",&x5);
+	system("cls");
+	gotoxy(3,4);
+	printf("TENIENDO LOS SIGUIENTES DATOS");
+	gotoxy(4,5);
+	printf("x0= 0	f(x0)= 5");
+	gotoxy(4,6);
+	printf("x1= 1	f(x1)= 2");
+	gotoxy(4,7);
+	printf("x2= 2	f(x2)= 1");
+	gotoxy(4,8);
+	printf("x3= 3	f(x3)= 0.42");
+	gotoxy(4,9);
+	printf("x4= 4	f(x4)= 0.1");
+	gotoxy(4,10);
+	printf("x5= 5	f(x4)= 0");
+	gotoxy(3,12);
+	printf("INSERTE EL VALOR DE f(x) EN ORDEN \n");
+	scanf("%f",&fx0);
+	scanf("%f",&fx1);
+	scanf("%f",&fx2);
+	scanf("%f",&fx3);
+	scanf("%f",&fx4);
+	scanf("%f",&fx5);
+	system("cls");
+	system("color 4f");
+	gotoxy(3,4);
+	printf("LOS NUMEROS INGRESADOS SON: ");
+	gotoxy(4,5);
+	printf("x0=%.f\t f(x0)= %.f",x0,fx0);
+	gotoxy(4,6);
+	printf("x1=%.f\t f(x1)= %.f",x1,fx1);
+	gotoxy(4,7);
+	printf("x2=%.f\t f(x2)= %.f",x2,fx2);
+	gotoxy(4,8);
+	printf("x3=%.f\t f(x3)= %.2f",x3,fx3);
+	gotoxy(4,9);
+	printf("x4=%.f\t f(x4)= %.1f",x4,fx4);
+	gotoxy(4,10);
+	printf("x5=%.f\t f(x5)= %.f",x5,fx5);
+	gotoxy(3,14);
+	printf("INSERTE EL NUMERO DE INTERVALOS:\t");
+	scanf("%f",&n);
+	//METODO ANALÍTICO
+	system("cls");
+	system("color 5f");
+	gotoxy(3,8);
+	printf("UTILIZANDO EL METODO ANALITICO SE TIENE b=%.4f h=%.4f ",x5,fx0);
+	Aa=(x5*x5*fx0)/3;
+	gotoxy(3,10);
+	printf("APLICANDO LA FORMULA V=(ab*h)/3 ",Aa);
+	system("cls");
+	system("color 3f");
+	//METODO NUMERICO
+	a=x0;
+	b=x5;
+	gotoxy(3,8);
+	printf("x0= %.f x5= %.f",x0,x5);
+	res=b-a;
+	h=res/n;
+	gotoxy(3,10);
+	printf("SIGUIENDO LA FORMULA h=(b-a)/n h=%.4f",h);
+	s=2*(fx1+fx2+fx3+fx4+fx5);
+	n=2*n;
+	r=(fx0+s+fx1)/n;
+	An=(x5-x0)*r;
+	gotoxy(3,12);
+	printf("E= SUMATORIA DE F(xi) DESDE i=1 HASTA i=n-1");
+	gotoxy(3,14);
+	printf("SIGUIENDO LA FORMULA A=(b-a) (f(x0)+2(E)+f(x1))/2n");
+	gotoxy(3,18);
+	printf("EL VALOR DEL VOLUMEN ANALITICA ES: %.4f u^2",Aa);
+	gotoxy(3,19);
+	printf("EL VALOR DEL AREA NUMERICA ES: %.4f u^2",An);
+	Ea=Aa-An;
+	gotoxy(3,21);
+	printf("EL ERROR DE APROXIMACION ES: %.4f u^2",Ea);
+	getch();
+}
+
