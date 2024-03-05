@@ -1,0 +1,105 @@
+/* SEGUNDO DEPARTAMENTAL MÉTODOS NUMÉRICOS
+
+MÉTODO DE BISECCIÓN, EJERCICIO 2 */
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+#include<math.h>
+
+float x1,x2,a,b,c,Li,Ls,Ea,pi,error,raiz;
+int cont,n;
+float function(float x)
+{
+return (3*pow(x,2)-18*(x)+15)/5;
+}
+
+int main( )
+{
+	system("color 3f");
+	gotoxy(27,9);
+	printf("INSTITUTO POLIT%cCNICO NACIONAL",144);
+	gotoxy(16,11);
+	printf("ESA");
+	gotoxy(26,13);
+	printf("UO");
+	gotoxy(33,15);
+	printf("M%cTODOS NUM%cRICOS",144,144);
+	gotoxy(29,17);
+	printf("S",181,224);
+	gotoxy(6,24);
+	printf("PRESIONE CUALQUIER TECLA PARA CONTINUAR");
+	getch();
+	system("cls");
+	//DATOS
+	gotoxy(65,2);
+	printf("EJERCICIO 2");
+	system("color 5f");
+	gotoxy (28,2);
+	printf ("METODO DE BISECCION");
+	gotoxy (10,4);
+	printf ("Digita los siguientes datos:");
+	gotoxy (10,6);
+	printf ("%c Digita el valor de a de la Ecuaci%cn General: ",254,162);
+	scanf ("%f",&a);
+	gotoxy (10,7);
+	printf ("%c Digita el valor de b de la Ecuaci%cn General: ",254,162);
+	scanf ("%f",&b);
+	gotoxy (10,8);
+	printf ("%c Digita el valor de c de la Ecuaci%cn General: ",254,162);
+	scanf ("%f",&c);
+	gotoxy (10,10);
+	printf ("%c Digita el Limite Inferior de la Funci%cn: ",204,162);
+	scanf ("%f",&Li);
+	gotoxy (10,11);
+	printf ("%c Digita el Limite Superior de la Funci%cn: ",204,162);
+	scanf ("%f",&Ls);
+	gotoxy (10,13);
+	printf ("%c Digita el Error de Aproximaci%cn: ",204,162);
+	scanf ("%f",&Ea);
+	gotoxy (10,14);
+	printf ("%c Digita el n%cmero de Iteraciones: ",204,163);
+	scanf ("%i",&n);
+	//MÉTODO ANALÍTICO
+	x1=(-b+(sqrt(pow(b,2)-(4*a*c))))/(2*a);
+	x2=(-b-(sqrt(pow(b,2)-(4*a*c))))/(2*a);
+	gotoxy (10,16);
+	printf ("METODO ANALITICO");
+	gotoxy (10,17);
+	printf ("Resultados de las Raices:");
+	gotoxy (14,19);
+	printf ("%c x1 -----> %.4f ",254,x1);
+	gotoxy (14,20);
+	printf ("%c x2 -----> %.4f",254,x2);
+	getch ();
+	gotoxy(4,24);
+	printf("PRESIONE CUALQUIER TECLA PARA CONTINUAR AL METODO NUMERICO");	
+	clrscr ();
+	gotoxy(65,2);
+	printf("EJERCICIO 2");
+	//MÉTODO NUMÉRICO
+	gotoxy (10,2);
+	printf ("METODO NUMERICO");
+	system("color 4f");
+	gotoxy (8,4);
+	printf ("It");
+	gotoxy (15,4);
+	printf ("Pi");
+	gotoxy (22,4);
+	printf ("Error");
+	gotoxy (31,4);
+	printf ("Raiz");
+	for(cont=1;cont<=n;cont++)
+	{
+		pi=(Ls+Li)/2;
+		if((function(pi)*function(Ls))>0) Ls=pi;
+		else Li=pi;
+		error= Ls-Li;
+		raiz=pi;
+		printf("\n\t%i %f %f %f", cont,pi,error,raiz);
+	}
+	gotoxy (10,16);
+	printf("%c RAIZ APROXIMADA -----> %.4f",254,raiz);
+	gotoxy (10,17);
+	printf("%c ERROR DE APROXIMACION ---------------> %.4f",254,error);
+	getch();
+}
