@@ -1,0 +1,15 @@
+//INCREMENTO, PROGRAMA 11
+//23 DE ABRIL DEL 2018
+/* PostIncremento y PreIncremento */
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+int main()
+{
+system("color 6f");
+int x=1;
+printf("\n x=%d",x);
+printf("\n x=%d",++x);/* incrementa y después imprime */
+printf("\n x=%d",x++);/* imprime y después incrementa */ printf("\n x=%d",x);
+getch(); return 0;
+}
