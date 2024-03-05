@@ -1,0 +1,22 @@
+//GANANCIA DEL 25% , PROGRAMA 3
+//06 DE ABRIL DEL 2018
+/*SÁNCHEZ LÓPEZ BLANCA YAEL, GRUPO 1RM1*/
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+float c,t;
+main( )
+{
+	system("color 3f");
+	gotoxy(32,7);
+	printf("BIENVENIDO AL PROGRAMA 3");
+	gotoxy(24,9);
+	printf("CALCULA UNA GANANCIA DEL 25 PORCIENTO");
+	gotoxy(6,13);
+	printf("INGRESE COSTO DEL ARTICULO\t");
+	scanf("%f",&c);
+	t=c*(1.25);
+	gotoxy(9,15);
+	printf("EL PRECIO DEBE SER: %f",t);
+	getch();
+}
