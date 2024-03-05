@@ -1,0 +1,249 @@
+/* MÉTODOS NUMÉRICOS
+PROYECTO, APLICACIÓN DEL MÉTODO NUMÉRICO 
+EN LA RESOLUCIÓN DE SISTEMAS DE ECUACIONES DE 3X3
+BASADO EN EL MÉTODO DE GAUSS JORDAN
+17 DE NOVIEMBRE DEL 2018
+ */
+#include<conio.h>
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+#include<string.h>
+
+float n1,n2;
+int r,m,t;
+char s,n[4],ans[10];
+
+main( )
+{    	
+			menu:
+			system("cls");
+	 		system("color f0");
+			textcolor(MAGENTA); //COLOR LETRA
+			gotoxy(2,2);
+		  	printf("BIENVENIDO");
+		   	gotoxy(32,7);
+		  	printf("PROYECTO M%cTODOS NUM%cRICOS",144,144);
+			//	MENÚ
+			textcolor(BROWN); //COLOR LETRA
+			gotoxy(6,10);
+		  	printf("TECLEA EL N%cMERO DE LA OPCI%cN A LA QUE QUIERAS ACCEDER ",233,224);
+			textcolor(BLACK); //COLOR LETRA
+			/*	CÓDIGO PARA MARGEN, PRUEBA
+			gotoxy(1,1);
+ 			for(int y=1; y<=20; y++)
+			{
+				gotoxy (80,y);
+				printf ("\t\t%c",186);
+			}
+				TERMINA MARGEN*/
+			gotoxy(8,12);
+		   	printf("%c 1 INTRODUCCI%cN",254,224);
+		   	gotoxy(8,13);
+		   	printf("%c 2 OBJETIVO GENERAL ",254);
+			gotoxy(8,14);
+		   	printf("%c 3 TEORIA",254);
+		   	gotoxy(8,15);
+		   	printf("%c 4 EXPLICACI%cN DE LOS EJERCICIOS",254,224);
+		   	gotoxy(8,16);
+		   	printf("%c 5 M%cTODO NUM%cRICO",254,144,144);
+		   	gotoxy(8,17);
+		   	printf("%c 6 CUESTIONARIO",254);
+			gotoxy(10,19);
+			scanf("%c",&s);
+			
+		   	switch (s)
+	   		{
+				case '1':
+	        	    cont:
+					system("cls");
+	    	        system("color 5f");
+					gotoxy(2,1);
+					printf("APLICACI%cN DE M%cTODOS NUM%cRICOS EN SOLUCI%cN DE UN SISTEMA DE ECUACIONES DE 3x3 ",224,144,144,224);
+					gotoxy(2,2);
+					printf("PROYECTO M%cTODOS NUM%cRICOS",144,144);
+					gotoxy(50,3);printf("P%cGINA 1",181);
+					gotoxy(70,5);
+		            printf("%c 1 INTRODUCCI%cN",254,224);
+				  	gotoxy(5,8);
+				  	printf("M%cTODO NUM%cRICO",144,144);
+					gotoxy(6,10);		  	
+					printf("Un m%ctodo num%crico es un procedimiento mediante el cual se obtiene, casi siempre de",130,130);
+					gotoxy(6,11);
+					printf("manera aproximada, la soluci%cn de ciertos problemas realizando c%clculos puramente",162,160);
+					gotoxy(6,12);
+		         	printf("aritm%cticos y l%cgicos (operaciones aritm%cticas elementales, c%clculo de funciones, consulta",130,162,130,160);
+	            	gotoxy(6,13);
+	            	printf("de una tabla de valores, c%clculo preposicional, etc.).",160);
+	            	gotoxy(6,15);
+	            	printf("Consiste en una lista finita de instrucciones precisas que especifican una secuencia de");
+					gotoxy(6,16);
+					printf("operaciones algebraicas y l%cgicas (algor%ctmo), que producen una aproximaci%cn de la soluci%cn",162,161,162,162);
+					gotoxy(6,17);
+					printf("del problema (soluci%cn num%crica) o bien un mensaje.",162,130);
+					gotoxy(6,20);
+					printf("La eficiencia en el c%clculo de dicha aproximaci%cn depende, en parte, de la facilidad",160,162);
+					gotoxy(6,21);
+					printf("de implementaci%cn del algoritmo y de las caracter%csticas especiales y limitaciones(computadoras)",162,161);
+					gotoxy(8,24);
+					printf("PRESIONE CUALQUIER TECLA PARA CONTINUAR...");
+					getch();
+					system("cls");
+					gotoxy(2,1);
+					printf("APLICACI%cN DE M%cTODOS NUM%cRICOS EN SOLUCI%cN DE UN SISTEMA DE ECUACIONES DE 3x3 ",224,144,144,224);
+					gotoxy(2,2);
+					printf("PROYECTO M%cTODOS NUM%cRICOS",144,144);
+					gotoxy(50,3);printf("P%cGINA 2",181);
+					gotoxy(5,7);
+					printf("SISTEMA DE ECUACIONES");
+					gotoxy(6,8);
+					printf("Un sistema de ecuaciones es un modelo matem%ctico que representa sucesos reales ",160);
+					gotoxy(6,9);
+					printf("de forma alfanum%crica. Pueden estar dados en dos, tres o m%cs dimensiones.",130,160);
+					gotoxy(6,10);
+					printf("Para su soluci%cn existen m%ctodos como:",162,130);
+					gotoxy(8,11);
+					printf("%c Sarrus",254);
+					gotoxy(8,12);
+					printf("%c Cramer",254);
+					gotoxy(8,13);
+					printf("%c Iteraciones",254);
+					gotoxy(8,14);
+					printf("%c Gauss-Jordan",254);
+					gotoxy(6,15);
+					printf("Se conforman por un n%cmero de ecuaciones y variables siendo de 3x3, 4x4 o m%cs.",163,160);
+					gotoxy(6,16);
+					printf("En este programa me enfocar%c en la soluci%cn de Sistemas de Ecuaciones de 3x3",130,162);
+					gotoxy(6,17);
+					printf("por el m%ctodo de Gauss-Jordan",130);
+					gotoxy(8,19);
+					printf("ESCRIBA -SI- PARA VOLVER A P%cGINA 1",181);
+					gotoxy(8,20);
+					printf("ESCRIBA -MEN%c- SI DESEA VER OTRA OPCI%cN",233,224);
+					gotoxy(8,21);
+					printf("ESCRIBA -SALIR- SI DESEA FINALIZAR EL PROGRAMA");
+					gotoxy(10,22);
+					scanf("%c",&ans);
+					if (ans=="si"||ans=="SI"||ans=="Si"||ans=="s"||ans=="S")
+					{
+						system("cls");
+						goto cont;
+					};
+					/*
+					if (strcmpi(ans,"si")==0)
+					{
+						system("cls");
+						goto cont;				
+					}
+					if (strcmpi(ans,"menu")==0)
+					{
+						system("cls");
+						goto menu;				
+					}
+					if (strcmpi(ans,"menú")==0)
+					{
+						system("cls");
+						goto menu;				
+					}
+					if (strcmpi(ans,"salir")==0)
+					{
+						system("cls");
+						goto end;				
+					} */
+					break;
+				case '2':
+	            	system("cls");
+	            	system("color 9f");
+					gotoxy(8,6);
+	            	printf("RETIRO DE EFECTIVO");
+				  	gotoxy(28,7);
+					printf("INSERTE TARJETA...");
+					gotoxy(7,9);
+					printf("INGRESE SU NIP ");
+					gotoxy(7,10);
+	            	gets(n);
+	            	gotoxy(7,11);
+	            	printf("INSERTE EL MONTO QUE DESEA RETIRAR");
+	            	gotoxy(7,12);
+	            	scanf("%d",&m);
+	            	gotoxy(7,13);
+	            	printf("IMPRIMIENDO COMPROBANTE");
+	            	gotoxy(7,14);
+	            	printf("RETIRE SU EFECTIVO");
+	            	//PREGUNTA PARA REINICIO
+		         	system("cls");
+					gotoxy(6,11);
+		         	printf("%c DESEAS VOLVER AL INICIO %c",168,63);
+					gotoxy(7,12);
+		         	printf("1 %c SI ",254);
+					gotoxy(7,13);
+		         	printf("2 %c NO ",254);
+					gotoxy(8,14);
+		         	scanf("%d",&r);
+		          	break;
+	         	case '3':
+	         		system("cls");
+	            	system("color 9f");
+					gotoxy(8,6);
+	            	printf("CAMBIO DE NIP");
+				  	gotoxy(28,7);
+					printf("INSERTE TARJETA...");
+					gotoxy(7,9);
+					printf("INGRESE SU NIP ");
+					gotoxy(7,10);
+					gets(n);
+	            	printf("INGRESE SU NUEVO NIP");
+	            	gotoxy(7,11);
+	            	gets(n);
+	            	gotoxy(7,12);
+	            	printf("NIP MODIFICADO");
+	            	gotoxy(7,13);
+	            	printf("IMPRIMIENDO COMPROBANTE");
+	            	//PREGUNTA PARA REINICIO
+		         	system("cls");
+					gotoxy(6,11);
+		         	printf("%c DESEAS VOLVER AL INICIO %c",168,63);
+					gotoxy(7,12);
+		         	printf("1 %c SI ",254);
+					gotoxy(7,13);
+		         	printf("2 %c NO ",254);
+					gotoxy(8,14);
+		         	scanf("%d",&r);
+	            	break;
+	         	case '4':
+	         		system("cls");
+	            	system("color 9f");
+					gotoxy(8,6);
+	            	printf("RETIRO SIN TARJETA");
+					gotoxy(7,9);
+					printf("INSERTE EL CODIGO QUE RECIBIO ");
+					gotoxy(7,10);
+	            	scanf("%c",&n);
+	            	gotoxy(7,11);
+	            	printf("IMPRIMIENDO COMPROBANTE");
+	            	gotoxy(7,12);
+	           	 	printf("RETIRE SU EFECTIVO");
+	           	 	//PREGUNTA PARA REINICIO
+		         	system("cls");
+					gotoxy(6,11);
+		         	printf("%c DESEAS VOLVER AL INICIO %c",168,63);
+					gotoxy(7,12);
+		         	printf("1 %c SI ",254);
+					gotoxy(7,13);
+		         	printf("2 %c NO ",254);
+					gotoxy(8,14);
+		         	scanf("%d",&r);
+	            	break;
+				default:
+	        		//REINICIO
+		         	system("cls");
+					system("color 4f");
+			   		goto menu;
+	end:
+	system("cls");
+	gotoxy(7,25);
+	printf("GRACIAS POR EJECUTAR ESTE PROGRAMA,PRESIONE CUALQUIER TECLA");
+	getch();
+}
+		  		
+
