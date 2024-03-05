@@ -1,0 +1,40 @@
+/* NUMERO POSITIVO O NEGATIVO, PROGRAMA 16
+12 DE MAYO DEL 2018
+*/
+#include<stdio.h>
+#include<stdlib.h>
+#include<conio.h>
+float n;
+main( )
+{
+   system("color 1f");
+	gotoxy(28,6);
+   printf("BIENVENIDO AL PROGRAMA 16");
+	gotoxy(27,7);
+   printf("NUMERO POSITIVO O NEGATIVO");
+   gotoxy(5,11);
+   printf("PROPORCIONA UN NUMERO ");
+   scanf("%f",&n);
+	if (n>0||n<0)
+   	{
+   	  	if (n>0)
+         	{
+            system("color 2f");
+            gotoxy(5,12);
+	      	printf("EL NUMERO %.1f ES POSITIVO",n);
+				}
+         if (n<0)
+         	{
+            system("color 4f");
+            gotoxy(5,12);
+            printf("EL NUMERO %.1f ES NEGATIVO",n);
+            }
+   	}
+	else
+   	{
+       system("color 0f");
+       gotoxy(5,12);
+       printf("EL NUMERO %.1f ES NEUTRO",n);
+      }
+	getch();
+}
