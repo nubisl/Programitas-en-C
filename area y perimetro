@@ -1,0 +1,85 @@
+//AREA Y PERIMETRO DE DOS FIGURAS, SWITCH
+//PROGRAMA 29
+//26 DE MAYO DEL 2018
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<conio.h>
+
+
+float A,P,b,B,h,li,ld;
+char f;
+main ( )
+{
+	system("color 3f");
+	gotoxy(30,6);
+  	printf("BIENVENIDO AL PROGRAMA 29");
+	gotoxy(32,7);
+  	printf("AREA Y PERIMETRO");
+  	gotoxy(7,10);
+  	printf("SELECCIONA UNA OPCION ");
+	gotoxy(7,12);
+   printf("%c 1 ROMBOIDE",220);
+   gotoxy(7,13);
+   printf("%c 2 TRAPECIO",220);
+   gotoxy(11,15);
+	scanf("%c",&f);
+   switch (f)
+   	{
+			case '1':
+            system("cls");
+            system("color 5f");
+				gotoxy(36,5);
+            printf("ROMBOIDE");
+  				gotoxy(32,6);
+			  	printf("AREA Y PERIMETRO");
+			  	gotoxy(7,8);
+				printf("INTRODUCE LA MEDIDA DE LA BASE ");
+            scanf("%f",&b);
+				gotoxy(7,9);
+            printf("INTRODUCE LA MEDIDA DE LA ALTURA ");
+            scanf("%f",&h);
+            A=b*h;
+            P=2*b+2*h;
+            gotoxy(8,11);
+            printf("EL AREA ES %.1f ",A);
+            gotoxy(8,12);
+            printf("EL PERIMETRO ES %1.f ",P);
+            break;
+			case '2':
+         	system("cls");
+            system("color 4f");
+				gotoxy(36,5);
+            printf("TRAPECIO");
+  				gotoxy(32,6);
+			  	printf("AREA Y PERIMETRO");
+			  	gotoxy(7,9);
+				printf("INTRODUCE LA MEDIDA DE LA BASE MAYOR ");
+            scanf("%f",&B);
+				gotoxy(7,10);
+            printf("INTRODUCE LA MEDIDA DE LA BASE MENOR ");
+            scanf("%f",&b);
+            gotoxy(7,11);
+            printf("INTRODUCE LA MEDIDA DE LA ALTURA ");
+				scanf("%f",&h);
+            gotoxy(7,12);
+            printf("INTRODUCE LA MEDIDA DEL LADO IZQUIERDO ");
+            scanf("%f",&li);
+            gotoxy(7,13);
+            printf("INTRODUCE LA MEDIDA DEL LADO DERECHO ");
+            scanf("%f",&ld);
+            P=B+b+li+ld;
+            A=h*(B+b)/2;
+            gotoxy(8,15);
+            printf("EL AREA ES %.1f ",A);
+            gotoxy(8,16);
+            printf("EL PERIMETRO ES %1.f ",P);
+            break;
+		default:
+         system("cls");
+			system("color 2f");
+		   gotoxy(32,12);
+      	printf("OPCION INVALIDA");
+	  	}
+	getch();
+}
