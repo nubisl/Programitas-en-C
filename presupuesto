@@ -1,0 +1,141 @@
+//PRESUPUESTO ANUAL PARA BEBE
+//PROGRAMA 31
+//27 DE MAYO DEL 2018
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<conio.h>
+
+int e;
+float t;
+main ( )
+{
+	system("color 2f");
+	gotoxy(30,6);
+  	printf("BIENVENIDO AL PROGRAMA 31");
+	gotoxy(33,7);
+  	printf("GASTO ANUAL EN BEBE");
+  	gotoxy(7,10);
+  	printf("SELECCIONA LA ETAPA QUE DESEAS VER: ");
+	gotoxy(8,12);
+   printf("%c RN 0 (0 A 20 DIAS) ",254);
+   gotoxy(8,13);
+   printf("%c ETAPA 1 (20 A 40 DIAS) ",254);
+   gotoxy(8,14);
+   printf("%c ETAPA 2 (2 A 4 MESES) ",254);
+   gotoxy(8,15);
+   printf("%c ETAPA 3 (5 A 10 MESES) ",254);
+	//SOLO SE CONTEMPLÓ HASTA UN AÑO
+   gotoxy(8,16);
+   printf("%c ETAPA 4 (11 A 20 MESES)",254);
+	gotoxy(8,17);
+   printf("%c 5 GASTO TOTAL (1 AÑO DE VIDA)",254);
+	gotoxy(9,19);
+   scanf("%d",&e);
+   switch (e)
+   	{
+			case 0:
+            system("cls");
+            system("color 5f");
+				gotoxy(2,2);
+            printf("%c RN 0",254);
+			  	gotoxy(5,6);
+				printf("ARTICULOS: ");
+           	gotoxy(6,8);
+			   printf("%c HUGGIES SUPREME DE 84PZAS POR 192.32MXN",254);
+			   gotoxy(6,9);
+			   printf("%c FORMULA NAN 1 2PZAS POR 529MXN",254);
+			   //CONSIDERANDO 6 COMIDAS Y 7 CAMBIOS DE PAÑAL DIARIOS
+				gotoxy(7,10);
+				t=(192.32*2)+(529*2);
+            gotoxy(8,12);
+            printf("EL GASTO VA A SER DE: %.f",t);
+            break;
+			case 1:
+            system("cls");
+            system("color 5f");
+				gotoxy(2,2);
+            printf("%c ETAPA 1",254);
+			  	gotoxy(5,6);
+				printf("ARTICULOS: ");
+           	gotoxy(6,8);
+			   printf("%c HUGGIES SUPREME DE 84PZAS POR 219MXN",254);
+			   gotoxy(6,9);
+			   printf("%c FORMULA NAN 1 2PZAS POR 529MXN",254);
+			   //CONSIDERANDO 6 COMIDAS Y 7 CAMBIOS DE PAÑAL DIARIOS
+				gotoxy(7,10);
+				t=(219*2)+(529*2);
+            gotoxy(8,12);
+            printf("EL GASTO VA A SER DE: %.f",t);
+            break;
+			case 2:
+            system("cls");
+            system("color 5f");
+				gotoxy(2,2);
+            printf("%c ETAPA 2",254);
+			  	gotoxy(5,6);
+				printf("ARTICULOS: ");
+           	gotoxy(6,8);
+			   printf("%c HUGGIES SUPREME DE 84PZAS POR 260MXN",254);
+			   gotoxy(6,9);
+			   printf("%c FORMULA NAN 1 2PZAS POR 529MXN",254);
+			   //CONSIDERANDO 6 COMIDAS Y 7 CAMBIOS DE PAÑAL DIARIOS
+				gotoxy(7,10);
+				t=(260*5)+(529*4);
+            gotoxy(8,12);
+            printf("EL GASTO VA A SER DE: %.f",t);
+            break;
+			case 3:
+            system("cls");
+            system("color 5f");
+				gotoxy(2,2);
+            printf("%c ETAPA 3",254);
+			  	gotoxy(5,6);
+				printf("ARTICULOS: ");
+           	gotoxy(6,8);
+			   printf("%c HUGGIES SUPREME DE 84PZAS POR 325MXN",254);
+			   gotoxy(6,9);
+			   printf("%c FORMULA NAN 1 2PZAS POR 529MXN",254);
+			   //CONSIDERANDO 6 COMIDAS Y 7 CAMBIOS DE PAÑAL DIARIOS
+				gotoxy(7,10);
+				t=(325*12)+(529*9);
+            gotoxy(8,12);
+            printf("EL GASTO VA A SER DE: %.f",t);
+            break;
+			case 4:
+            system("cls");
+            system("color 5f");
+				gotoxy(2,2);
+            printf("%c ETAPA 4",254);
+			  	gotoxy(5,6);
+				printf("ARTICULOS: ");
+           	gotoxy(6,8);
+			   printf("%c HUGGIES SUPREME DE 84PZAS POR 329.7MXN",254);
+			   gotoxy(6,9);
+			   printf("%c FORMULA NAN 1 2PZAS POR 529MXN",254);
+			   //CONSIDERANDO 6 COMIDAS Y 7 CAMBIOS DE PAÑAL DIARIOS
+				gotoxy(7,10);
+				t=(329.7*5)+(529*4);
+            gotoxy(8,12);
+            printf("EL GASTO VA A SER DE: %.f",t);
+            break;
+         case 5:
+            system("cls");
+            system("color 5f");
+				gotoxy(2,2);
+            printf("%c GASTO ANUAL",254);
+			  	gotoxy(5,6);
+				printf("ARTICULOS: ");
+           	gotoxy(6,8);
+			   printf("%c HUGGIES SUPREME DE 84PZAS",254);
+			   gotoxy(6,9);
+			   printf("%c FORMULA NAN 1 CON 2PZAS ",254);
+			   //CONSIDERANDO 6 COMIDAS Y 7 CAMBIOS DE PAÑAL DIARIOS
+				gotoxy(7,10);
+				t=1442.64+1496+3416+8661+3764.5;
+            gotoxy(8,12);
+            printf("EL GASTO VA A SER DE: %.f",t);
+            break;
+	  	}
+	getch();
+}
