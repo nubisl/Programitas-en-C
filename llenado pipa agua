@@ -1,0 +1,62 @@
+//LLENADO DE UNA PIPA DE AGUA
+//PROGRAMA 36
+//05 DE JUNIO DEL 2018
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<conio.h>
+#include<string.h>
+
+int t;
+float c;
+char e[5];
+main ( )
+{
+		system("color 6f");
+	   gotoxy(2,2);
+	  	printf("BIENVENIDO AL PROGRAMA 36");
+	   gotoxy(2,3);
+	  	printf("LLENADO DE PIPA");
+      gotoxy(2,4);
+      printf("EMPRESA AQUAFEST");
+     	gotoxy(6,7);
+	  	printf("INGRESA LA CANTIDAD DE LITROS A CARGAR");
+	   gotoxy(7,8);
+      scanf("%f",&c);
+		system("cls");
+		//REIMPRESION DE INFORMACION
+		system("color 6f");
+	   gotoxy(2,2);
+	  	printf("BIENVENIDO AL PROGRAMA 36");
+	   gotoxy(2,3);
+	  	printf("LLENADO DE PIPA");
+      gotoxy(2,4);
+      printf("EMPRESA AQUAFEST");
+      //FINALIZA REIMPRESION
+      gotoxy(6,6);
+		printf("PREPARANDO CARGA DE %.2f LITROS",c);
+      gotoxy(6,7);
+		printf("TECLEE %cLISTO%c PARA INICIAR LLENADO",254,254);
+	   gotoxy(7,8);
+		gets(e);
+      if (strcmpi(e,"listo")==0)
+        	{
+				gotoxy(7,9);
+           	printf("INICIANDO PROCESO...");
+				gotoxy(7,10);
+				printf("PROCESO DE 1 A 100");
+				gotoxy(1,13);
+				t=0;
+            while (t<=100)
+            {
+					printf("CARGANDO PIPA%c%c%c %d \n",220,220,220,t);
+               t=t+10;
+            }
+         }
+      else
+        	{
+         	gotoxy(7,9);
+            printf("ERROR, REINICIE EL SISTEMA");
+         }
+	getch();
+}
