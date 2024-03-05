@@ -1,0 +1,38 @@
+//IMC, PROGRAMA 15
+//23 DE ABRIL DEL 2018
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<conio.h>
+float e,p,IMC;
+main()
+{
+	system("color 0b");
+   gotoxy(30,5);
+   printf("BIENVENIDO AL PROGRAMA 15");
+   gotoxy(31,6);
+   printf("INDICE DE MASA CORPORAL");
+	gotoxy(5,13);
+	printf("INGRESE SU ESTATURA EN M ");
+   scanf("%f",&e);
+   gotoxy(5,15);
+   printf("INGRESE SU PESO EN KG ");
+   scanf("%f",&p);
+   //SEGUN EL IMSS,IMC=PESO/(ALTURA)(ALTURA)
+	IMC=p/(e*e);
+   system("cls");
+   system("color 0d");
+   gotoxy(29,6);
+   printf("INDICE DE MASA CORPORAL");
+	gotoxy(8,13);
+   printf("SU IMC ES %f",IMC);
+	gotoxy(6,22);
+   printf("PARA SABER SI SE ENCUENTRA EN RANGOS NORMALES SE LE RECOMIENDA VISITAR");
+	gotoxy(19,23);
+   printf("http://www.imss.gob.mx/salud-en-linea/calculaimc ");
+	gotoxy(13,24);
+	printf("ESTA APLICACION ES DE CARACTER INFORMATIVO, DE NINGUN MODO");
+	gotoxy(29,25);
+  	printf("SUPLIRA LA OPINION MEDICA");
+   getch();
+}
